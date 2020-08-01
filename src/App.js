@@ -2,7 +2,11 @@ import React from 'react';
 import './App.css';
 
 function App() {
-  return " ";
+  return (
+    <div className="App">
+      Eunoia Mia  
+    </div>
+  );
 }
 
 export default App;
