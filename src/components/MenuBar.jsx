@@ -4,7 +4,7 @@ const MenuBar = () => {
     return (
     <div class="menu-bar">
       <button class="menu-btn">Inicio</button>
-      <img src="separator.png" height="30px"/>
+      <img alt="separator" src="separator.png" height="30px"/>
       <div class="dropdown">
         <button class="dropbtn">Productos</button>
         <div class="dropdown-content">
@@ -18,17 +18,17 @@ const MenuBar = () => {
           <a href="#">Almohadillas termicas</a>
         </div>
       </div>
-      <img src="separator.png" height="30px" />
+      <img alt="separator" src="separator.png" height="30px" />
       <button class="menu-btn">Info</button>
-      <img src="separator.png" height="30px" />
+      <img alt="separator" src="separator.png" height="30px" />
       <button class="menu-btn">Quienes somos</button>
-      <img src="separator.png" height="30px" />
+      <img alt="separator" src="separator.png" height="30px" />
       <button class="menu-btn">Contacto</button>
       <div class="search-container">
         <form action="">
           <input type="search" />
           <button>
-            <img height="20px" src="search.ico"/>
+            <img alt="Buscar"height="20px" src="search.ico"/>
           </button>
         </form>
       </div>
