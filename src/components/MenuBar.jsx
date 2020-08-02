@@ -8,20 +8,20 @@ const MenuBar = () => {
       <div class="dropdown">
         <button class="dropbtn">Productos</button>
         <div class="dropdown-content">
-          <a href="javascript:;">Cuidado capilar</a>
-          <a href="javascript:;">Salud bucal</a>
-          <a href="javascript:;">Aromaterapia</a>
-          <a href="javascript:;">Desodorante natural</a>
-          <a href="javascript:;">Cuidado de la piel</a>
-          <a href="javascript:;">Jabones vegetales</a>
-          <a href="javascript:;">Accesorios sustentables</a>
-          <a href="javascript:;">Almohadillas termicas</a>
+          <a href="#">Cuidado capilar</a>
+          <a href="#">Salud bucal</a>
+          <a href="#">Aromaterapia</a>
+          <a href="#">Desodorante natural</a>
+          <a href="#">Cuidado de la piel</a>
+          <a href="#">Jabones vegetales</a>
+          <a href="#">Accesorios sustentables</a>
+          <a href="#">Almohadillas térmicas</a>
         </div>
       </div>
       <img alt="separator" src="separator.png" height="30px" />
       <button class="menu-btn">Info</button>
       <img alt="separator" src="separator.png" height="30px" />
-      <button class="menu-btn">Quienes somos</button>
+      <button class="menu-btn">Quiénes somos</button>
       <img alt="separator" src="separator.png" height="30px" />
       <button class="menu-btn">Contacto</button>
       <div class="search-container">
