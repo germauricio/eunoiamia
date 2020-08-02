@@ -37,6 +37,7 @@ h1 {
   padding: 16px;
   font-size: 30px;
   border: none;
+  background-color: #f1f1f1;
 }
 
 .menu-btn:hover {background-color:grey;}
@@ -51,7 +52,6 @@ h1 {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 

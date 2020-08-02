@@ -8,14 +8,14 @@ const MenuBar = () => {
       <div class="dropdown">
         <button class="dropbtn">Productos</button>
         <div class="dropdown-content">
-          <a>Cuidado capilar</a>
-          <a>Salud bucal</a>
-          <a>Aromaterapia</a>
-          <a>Desodorante natural</a>
-          <a>Cuidado de la piel</a>
-          <a>Jabones vegetales</a>
-          <a>Accesorios sustentables</a>
-          <a>Almohadillas termicas</a>
+          <a href="javascript:;">Cuidado capilar</a>
+          <a href="javascript:;">Salud bucal</a>
+          <a href="javascript:;">Aromaterapia</a>
+          <a href="javascript:;">Desodorante natural</a>
+          <a href="javascript:;">Cuidado de la piel</a>
+          <a href="javascript:;">Jabones vegetales</a>
+          <a href="javascript:;">Accesorios sustentables</a>
+          <a href="javascript:;">Almohadillas termicas</a>
         </div>
       </div>
       <img alt="separator" src="separator.png" height="30px" />
