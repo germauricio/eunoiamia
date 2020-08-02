@@ -24,7 +24,7 @@ const MenuBar = () => {
           </button>
         </form>
       </div>
-      <img class="search-container" height="40px" src="shop.ico"/>
+      <img class="search-container" alt="shop" height="40px" src="shop.ico"/>
           
     </div>
   );

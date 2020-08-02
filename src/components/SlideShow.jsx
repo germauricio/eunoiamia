@@ -1,14 +1,8 @@
-import React , {useState} from "react";
+import React from "react";
 import Carousel from 'react-bootstrap/Carousel'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function SliderShow() {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
-
   return (
     <Carousel>
       <Carousel.Item>
