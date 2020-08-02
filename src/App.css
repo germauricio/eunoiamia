@@ -27,19 +27,19 @@ h1 {
 }
 
 .dropbtn {
-  color: rgb(0, 0, 0);
   font-family: 'Amatic SC';
   padding: 16px;
   font-size: 30px;
   border: none;
+  background-color: #f1f1f1;
 }
 
 .menu-btn {
-  color: rgb(0, 0, 0);
   font-family: 'Amatic SC';
   padding: 16px;
   font-size: 30px;
-  border: none;
+  border: none;  
+  background-color: #f1f1f1;
 }
 
 .menu-btn:hover {background-color:grey;}
