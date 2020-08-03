@@ -15,7 +15,6 @@ function SliderShow() {
         </div>
         <Carousel.Caption>
           <h3>Jabon natural</h3>
-          <p>Descripcion</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -28,7 +27,6 @@ function SliderShow() {
         </div>
         <Carousel.Caption>
           <h3>Peines reciclables</h3>
-          <p>Descripcion</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -41,7 +39,6 @@ function SliderShow() {
         </div>
         <Carousel.Caption>
           <h3>Cepillos reciclables</h3>
-          <p>Descripcion</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

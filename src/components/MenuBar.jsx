@@ -8,14 +8,15 @@ const MenuBar = () => {
       <div class="dropdown">
         <button class="dropbtn">Productos</button>
         <div class="dropdown-content">
-          <a href="#">Cuidado capilar</a>
-          <a href="#">Salud bucal</a>
-          <a href="#">Aromaterapia</a>
-          <a href="#">Desodorante natural</a>
-          <a href="#">Cuidado de la piel</a>
-          <a href="#">Jabones vegetales</a>
-          <a href="#">Accesorios sustentables</a>
-          <a href="#">Almohadillas térmicas</a>
+          <button className="menu-btn-item">Combos</button>
+          <button className="menu-btn-item">Cuidado capilar</button>
+          <button className="menu-btn-item">Cuidado de la piel</button>
+          <button className="menu-btn-item">Salud bucal</button>
+          <button className="menu-btn-item">Desodorante natural</button>
+          <button className="menu-btn-item">Jabones vegetales</button>
+          <button className="menu-btn-item">Accesorios sustentables</button>
+          <button className="menu-btn-item">Almohadillas térmicas</button>
+          <button className="menu-btn-item">Aromaterapia</button>
         </div>
       </div>
       <img alt="separator" src="separator.png" height="30px" />
@@ -32,7 +33,7 @@ const MenuBar = () => {
           </button>
         </form>
       </div>
-      <img class="search-container" alt="shop" height="40px" src="shop.ico"/>
+      <img class="shop" alt="shop" height="60px" src="shop.ico"/>
           
     </div>
   );
