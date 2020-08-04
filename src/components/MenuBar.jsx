@@ -13,15 +13,15 @@ const MenuBar = () => {
          <Link to = "/products" className = "link">Productos</Link>
         </button>        
         <div class="dropdown-content">
-          <button className="menu-btn-item">Combos</button>
-          <button className="menu-btn-item">Cuidado capilar</button>
-          <button className="menu-btn-item">Cuidado de la piel</button>
-          <button className="menu-btn-item">Salud bucal</button>
-          <button className="menu-btn-item">Desodorante natural</button>
-          <button className="menu-btn-item">Jabones vegetales</button>
-          <button className="menu-btn-item">Accesorios sustentables</button>
-          <button className="menu-btn-item">Almohadillas térmicas</button>
-          <button className="menu-btn-item">Aromaterapia</button>
+          <button className="menu-btn">Combos</button>
+          <button className="menu-btn">Cuidado capilar</button>
+          <button className="menu-btn">Cuidado de la piel</button>
+          <button className="menu-btn">Salud bucal</button>
+          <button className="menu-btn">Desodorante natural</button>
+          <button className="menu-btn">Jabones vegetales</button>
+          <button className="menu-btn">Accesorios sustentables</button>
+          <button className="menu-btn">Almohadillas térmicas</button>
+          <button className="menu-btn">Aromaterapia</button>
         </div>
       </div>
       <img alt="separator" src="separator.png" height="30px" />
