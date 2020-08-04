@@ -24,9 +24,15 @@ const WhoAreWe = () => {
             <h3 className = "h3-info">
                 ¿qué estás esperando? ¡Sumate al cambio!
             </h3>
+            <br></br>
+            <br></br>
             <h1>
                 <img alt="logo" src="eunoiamialogo.png" height="200px" />
             </h1>
+            <br></br>
+            <br></br>
+            <br></br>
+
         </div>
     );
 }

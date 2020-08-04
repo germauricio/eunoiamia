@@ -25,6 +25,9 @@ const Contact = () => {
                     <h2 className="h2-contact">@eunoia.mia</h2>
                 </div>
             </a>
+            <br></br>
+            <br></br>
+            <br></br>
         </div>
     );
 }

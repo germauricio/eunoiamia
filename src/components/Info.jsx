@@ -28,6 +28,9 @@ const Info = () => {
             <h3 className="h3-info">• PODÉS RETIRAR SIN CARGO POR SAENZ PEÑA, TRES DE FEBRERO, BUENOS AIRES.</h3>
             <h3 className="h3-info">• SE REALIZAN ENVÍOS A CARGO DEL CLIENTE LOS DÍAS LUNES DE 9HS A 18HS. </h3>
             <h3 className="h3-info">• MÍNIMO DE $150 (CONSULTAR COSTO DE ENVÍO DEPENDIENDO LA ZONA).</h3>
+            <br></br>
+            <br></br>
+            <br></br>
         </div>
     );
 }
