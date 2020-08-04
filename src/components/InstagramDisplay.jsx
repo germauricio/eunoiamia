@@ -19,7 +19,12 @@ function InstagramDisplay(){
                 photos.map( (photo) => {
                     console.log(photo.node.display_url)
                     return(
-                        <img alt="imagen de instagram" className="display-image" src={photo.node.display_url} height="300px" />
+                        <a 
+                            href={`https://www.instagram.com/p/${photo.node.shortcode}/`} 
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            <img alt="imagen de instagram" className="display-image" src={photo.node.display_url} height="400px" />
+                        </a>    
                     );
                 })
             )}
