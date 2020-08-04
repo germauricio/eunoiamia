@@ -23,7 +23,7 @@ function InstagramDisplay(){
                             href={`https://www.instagram.com/p/${photo.node.shortcode}/`} 
                             target="_blank"
                             rel="noopener noreferrer">
-                            <img alt="imagen de instagram" className="display-image" src={photo.node.display_url} height="400px" />
+                            <img alt="imagen de instagram" className="display-image" src={photo.node.display_url} />
                         </a>    
                     );
                 })
