@@ -1,12 +1,17 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 const MenuBar = () => {
     return (
     <div class="menu-bar">
-      <button class="menu-btn">Inicio</button>
+      <button class="menu-btn">
+        <Link to = "/" className = "link">Inicio</Link>
+      </button>
       <img alt="separator" src="separator.png" height="30px"/>
       <div class="dropdown">
-        <button class="dropbtn">Productos</button>
+        <button class="dropbtn">
+         <Link to = "/products" className = "link">Productos</Link>
+        </button>        
         <div class="dropdown-content">
           <button className="menu-btn-item">Combos</button>
           <button className="menu-btn-item">Cuidado capilar</button>
@@ -20,12 +25,16 @@ const MenuBar = () => {
         </div>
       </div>
       <img alt="separator" src="separator.png" height="30px" />
-      <button class="menu-btn">Info</button>
+      <button class="menu-btn">
+        <Link to = "/info" className = "link">Info</Link>
+      </button>
       <img alt="separator" src="separator.png" height="30px" />
-      <button class="menu-btn">Quiénes somos</button>
-      <img alt="separator" src="separator.png" height="30px" />
-      <button class="menu-btn">Contacto</button>
-      <div class="search-container">
+      <button class="menu-btn">
+        <Link to = "/whoarewe" className = "link">Quiénes somos</Link>
+      </button><img alt="separator" src="separator.png" height="30px" />
+      <button class="menu-btn">
+        <Link to = "/contact" className = "link">Contacto</Link>
+      </button><div class="search-container">
         <form action="">
           <input type="search" />
           <button>
