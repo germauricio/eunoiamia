@@ -9,7 +9,7 @@ function SliderShow() {
         <Carousel.Item>
           <div className="image-slider">
             <img
-              className="w-50"
+              className="w-100"
               src="jabon.jpg"
               alt="Jabon"
             />
@@ -21,7 +21,7 @@ function SliderShow() {
         <Carousel.Item>
           <div className="image-slider">
             <img
-              className="w-50"
+              className="w-100"
               src="peine.jpg"
               alt="Peine"
             />
@@ -34,7 +34,7 @@ function SliderShow() {
           <div className="image-slider">
             <img
               className="w-100"
-              src="horizontal.jpg"
+              src="cepillo.jpg"
               alt="Cepillo"
             />
           </div>
