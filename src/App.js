@@ -7,7 +7,6 @@ import Info from './components/Info'
 import WhoAreWe from './components/WhoAreWe'
 import Contact from './components/Contact'
 import Products from './components/Products'
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
