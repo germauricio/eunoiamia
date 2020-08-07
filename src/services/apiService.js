@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "https://eunoiamia.netlify.app/"
+const url = "https://eunoiamia.netlify.app"
 
 export default async function getProducts(){
 
