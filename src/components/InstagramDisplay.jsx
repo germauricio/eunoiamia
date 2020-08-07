@@ -17,7 +17,6 @@ function InstagramDisplay(){
             <div className="display">
             { photos && (
                 photos.map( (photo) => {
-                    console.log(photo.node.display_url)
                     return(
                         <a 
                             href={`https://www.instagram.com/p/${photo.node.shortcode}/`} 
