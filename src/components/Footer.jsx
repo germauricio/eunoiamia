@@ -16,7 +16,7 @@ const Footer = () => {
             <div class="bottom-footer">
                 <Link to = "/" className = "bottom-footer-bar">Inicio     |</Link>
                 <Link to = "/products" className = "bottom-footer-bar">Productos     |</Link>
-                <Link to = "/info" className = "bottom-footer-bar">Info     |</Link>
+                <Link to = "/contact" className = "bottom-footer-bar">Contacto     |</Link>
             </div>
         </div>
     );
