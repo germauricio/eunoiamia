@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "http://eunoiamiaapi.herokuapp.com"
+const url = "https://eunoiamiaapi.herokuapp.com"
 
 export default async function getProducts(){
 
