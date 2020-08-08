@@ -221,6 +221,11 @@ h2 {
   padding-bottom: 3em;
 }
 
+.loading{
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+
 .product-card:hover{
   transform: scale(1.05);
   z-index: 2;

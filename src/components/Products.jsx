@@ -14,8 +14,10 @@ function Products(){
 
     return(
         <div className="container">
-        { products && (
+        { products ? (
             <ProductCard products={products} />
+        ) : (
+            <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
         )}
         </div>
     )
