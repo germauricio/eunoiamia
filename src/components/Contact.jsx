@@ -24,10 +24,24 @@ const Contact = () => {
                     <img alt="logoig" src="logo-instagram.png" height="250px" />
                     <h2 className="h2-contact">@eunoia.mia</h2>
                 </div>
-            </a>
+            </a>            <br></br>
             <br></br>
             <br></br>
             <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
         </div>
     );
 }

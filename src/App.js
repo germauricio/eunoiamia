@@ -17,10 +17,10 @@ function App() {
         <MenuBar />
         <Switch>
           <Route path = "/" exact component = { Home } />
-          <Route path = "/whoarewe" exact component = { WhoAreWe } />
-          <Route path = "/info" exact component = { Info } />
-          <Route path = "/contact" exact component = { Contact } />
-          <Route path = "/products" exact component = { Products } />
+          <Route path = "/whoarewe" component = { WhoAreWe } />
+          <Route path = "/info" component = { Info } />
+          <Route path = "/contact" component = { Contact } />
+          <Route path = "/products" component = { Products } />
         </Switch>
         </div>
     </Router>
