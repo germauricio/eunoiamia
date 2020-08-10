@@ -84,6 +84,7 @@ h2 {
 .menu-bar{
   background-color: #f1f1f1;
   display: block;
+  margin-bottom: 2em;
 }
 
 .search{
@@ -155,7 +156,6 @@ h2 {
 
 .dropdown-content button {
   color: black;
-  padding: 12px 16px;
   text-decoration: none;
   display: block;
   font-family: 'Amatic SC';
@@ -379,4 +379,84 @@ html, body {
 .bottom-footer {
   padding-top: 1em;
   padding-bottom: 2em;
+}
+
+nav{
+  height: 80px;
+  width: 100%;
+  padding-bottom: 4em;
+}
+
+nav ul{
+  float: left;
+}
+nav ul li{
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a{
+  font-family: 'Amatic SC';
+  padding: 4px;
+  font-size: 30px;
+  border: none;  
+  background-color: #f1f1f1;
+  color: black;
+}
+a.active,a:hover{
+  background: grey;
+  transition: .5s;
+  color:black;
+  text-decoration: none;
+}
+.checkbtn{
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+@media (max-width: 952px){
+  nav ul li a{
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+  }
+  ul{
+    position: fixed;
+    width: 60%;
+    height: 100vh;
+    background: #f1f1f1;
+    top: 80px;
+    right: -100%;
+    text-align: center;
+    transition: all .5s;
+    z-index: 1
+  }
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+    margin: 5px;
+  }
+  nav ul li a{
+    font-size: 20px;
+    margin: 5px
+  }
+  a:hover,a.active{
+    background: none;
+    color: #0082e6;
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
 }
