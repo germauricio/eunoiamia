@@ -12,7 +12,6 @@ export default function ProductCard({ products }){
                         </div>
                         <div class="product-details">
                             <h4><a className="product-a" href="http://eunoiamia.netlify.app/">{product.description}</a></h4>
-                            <p>{product.detail}</p>
                             <div class="product-bottom-details">
                                 <div class="product-price">${product.price}</div>
                                 <div class="product-links">

@@ -14,9 +14,11 @@ const Footer = () => {
                 </a>
             </div>
             <div class="bottom-footer">
-                <Link to = "/" className = "bottom-footer-bar">Inicio     |</Link>
-                <Link to = "/products" className = "bottom-footer-bar">Productos     |</Link>
-                <Link to = "/contact" className = "bottom-footer-bar">Contacto     |</Link>
+                <Link to = "/" className = "bottom-footer-bar">Inicio&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</Link>
+                <Link to = "/products" className = "bottom-footer-bar">Productos&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</Link>
+                <Link to = "/contact" className = "bottom-footer-bar">Contacto</Link>
             </div>
         </div>
     );

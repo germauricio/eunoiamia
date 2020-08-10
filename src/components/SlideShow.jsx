@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function SliderShow() {
   return (
     <div className="carousel-container">
-      <Carousel>
+      <Carousel interval={2500}>
         <Carousel.Item>
           <div className="image-slider">
             <img
