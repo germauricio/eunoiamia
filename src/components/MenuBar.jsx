@@ -12,7 +12,7 @@ const MenuBar = () => {
         <img src="/hamburguer.png" height="30px" alt="hamburguer"></img>
       </label>
       <ul>
-        <li><Link to = "/" className = "link">Inicio</Link></li>
+        <li><Link to = "/" className = "menu-btn">Inicio</Link></li>
         <img alt="separator" src="/separator.png" height="30px" />
         <li>
           <div className="dropdown">
@@ -31,11 +31,11 @@ const MenuBar = () => {
           </div>
         </li>
         <img alt="separator" src="/separator.png" height="30px" />
-        <li><Link to = "/info" className = "link">Info</Link></li>
+        <li><Link to = "/info" className = "menu-btn">Info</Link></li>
         <img alt="separator" src="/separator.png" height="30px" />
-        <li><Link to = "/whoarewe" className = "link">Quiénes somos</Link></li>
+        <li><Link to = "/whoarewe" className = "menu-btn">Quiénes somos</Link></li>
         <img alt="separator" src="/separator.png" height="30px" />
-        <li><Link to = "/contact" className = "link">Contacto</Link></li>
+        <li><Link to = "/contact" className = "menu-btn">Contacto</Link></li>
       </ul> 
     </nav>
     </div>

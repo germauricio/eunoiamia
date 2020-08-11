@@ -4,9 +4,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 
 .carousel-container {
+  position:relative;
   margin: auto;
   background-color: #ddd;
   width: 60%;
+  z-index: -1;
 }
 
 .header {
@@ -110,7 +112,7 @@ h2 {
 .bottom-footer-bar {
   color:white;
   font-family: 'Amatic SC';
-  font-size: 30px;
+  font-size: 160%;
   padding-left: 2em;
   transition: color 0.5s ease;
 }
@@ -131,7 +133,10 @@ h2 {
   background-color: #f1f1f1;
 }
 
-.menu-btn:hover {background-color:grey;}
+.menu-btn:hover {
+  color:black;
+  text-decoration:none;
+  background-color:grey;}
 
 .dropdown {
   position: relative;
@@ -160,7 +165,10 @@ h2 {
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color:grey;}
+.dropdown:hover .dropbtn {
+  color: black;
+  text-decoration:none;
+  background-color:grey;}
 
 .search-container input {
   padding-top: 6px;
@@ -347,13 +355,6 @@ h2 {
     color: #fbb72c;
 }
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-  height: 100%;
-  margin: 0;
-}
-
 .footer {
   text-align: center;
   background-color: rgb(77, 152, 193);
@@ -374,6 +375,7 @@ html, body {
   padding-bottom: 2em;
   overflow: hidden;
   white-space: nowrap;
+  padding-right:2em
 }
 
 nav{
@@ -427,15 +429,16 @@ a.active,a:hover{
     display: block;
   }
   ul{
-    position: fixed;
-    width: 60%;
-    height: 100vh;
+    width: 80%;
+    height: 360px;
     background: #f1f1f1;
-    top: 80px;
-    right: -100%;
+    top: 120px;
+    left: -100%;
     text-align: center;
     transition: all .5s;
-    z-index: 1
+    overflow: -moz-hidden-unscrollable;
+    position: absolute;
+    z-index: 1;
   }
   nav ul li{
     display: block;
@@ -445,12 +448,9 @@ a.active,a:hover{
   }
   nav ul li a{
     font-size: 20px;
-    margin: 5px
+    margin: 5px;
   }
-  a:hover,a.active{
-    background: none;
-    color: #0082e6;
-  }
+
   #check:checked ~ ul{
     left: 0;
   }
@@ -535,4 +535,9 @@ a.active,a:hover{
 }
 .cart-btn:hover {
   background-color: #64af3d;
+}
+
+.display-image {
+  padding: 1%;
+  width: 49%
 }
