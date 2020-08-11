@@ -17,7 +17,7 @@ function ProductDetail( props ){
                 </div>
                 <div class="product-detail-price">
                     <span>${product.price}</span>
-                    <a href="#" class="cart-btn">Agregar al carrito</a>
+                    <button class="cart-btn">Agregar al carrito</button>
                 </div>
             </div>
         </div>

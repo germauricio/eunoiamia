@@ -9,7 +9,7 @@ const MenuBar = () => {
     <nav className="menu-bar">
       <input type="checkbox" id="check"/>
       <label for="check" class="checkbtn">
-        <img src="/hamburguer.png" height="30px"></img>
+        <img src="/hamburguer.png" height="30px" alt="hamburguer"></img>
       </label>
       <ul>
         <li><Link to = "/" className = "link">Inicio</Link></li>
