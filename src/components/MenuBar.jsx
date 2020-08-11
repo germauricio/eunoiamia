@@ -33,7 +33,7 @@ const MenuBar = () => {
         <img alt="separator" src="/separator.png" height="30px" />
         <li><Link to = "/info" className = "link">Info</Link></li>
         <img alt="separator" src="/separator.png" height="30px" />
-        <li><Link to = "/whoweare" className = "link">Quiénes somos</Link></li>
+        <li><Link to = "/whoarewe" className = "link">Quiénes somos</Link></li>
         <img alt="separator" src="/separator.png" height="30px" />
         <li><Link to = "/contact" className = "link">Contacto</Link></li>
       </ul> 
