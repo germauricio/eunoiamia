@@ -7,6 +7,7 @@ import Info from './components/Info'
 import WhoAreWe from './components/WhoAreWe'
 import Contact from './components/Contact'
 import Products from './components/Products'
+import ProductDetail from './components/products/ProductDetail'
 import Footer from './components/Footer'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -22,6 +23,7 @@ function App() {
           <Route path = "/info" component = { Info } />
           <Route path = "/contact" component = { Contact } />
           <Route path = "/products" component = { Products } />
+          <Route path = "/product/:name" render= {(props) => <ProductDetail {...props} />} />
         </Switch>
         <Footer />
       </div>
