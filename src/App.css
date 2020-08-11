@@ -119,8 +119,6 @@ h2 {
 
 .bottom-footer-bar:hover{
   color:#ddd;
-  font-family: 'Amatic SC';
-  font-size: 30px;
   text-decoration: none;
   padding-left: 2em;
 }
@@ -400,12 +398,7 @@ nav ul li a{
   background-color: #f1f1f1;
   color: black;
 }
-a.active,a:hover{
-  background: grey;
-  transition: .5s;
-  color:black;
-  text-decoration: none;
-}
+
 .checkbtn{
   font-size: 30px;
   color: white;
@@ -428,11 +421,17 @@ a.active,a:hover{
   .checkbtn{
     display: block;
   }
+
+  .display-image {
+    padding: 1%;
+    width: 49%
+  }
+
   ul{
     width: 80%;
     height: 360px;
     background: #f1f1f1;
-    top: 120px;
+    top: 140px;
     left: -100%;
     text-align: center;
     transition: all .5s;
@@ -453,6 +452,16 @@ a.active,a:hover{
 
   #check:checked ~ ul{
     left: 0;
+  }
+
+  .left-column {
+    width: 100%;
+    position: relative;
+  }
+  
+  .right-column {
+    width: 100%;
+    position: relative;
   }
 }
 
@@ -535,9 +544,4 @@ a.active,a:hover{
 }
 .cart-btn:hover {
   background-color: #64af3d;
-}
-
-.display-image {
-  padding: 1%;
-  width: 49%
 }
