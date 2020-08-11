@@ -71,9 +71,8 @@ h2 {
   font-size:25px;
 }
 
-
 .display-image {
-  padding: 20px;
+  padding: 2%;
   width: 33%
 }
 
@@ -373,6 +372,8 @@ html, body {
 .bottom-footer {
   padding-top: 1em;
   padding-bottom: 2em;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 nav{
