@@ -6,8 +6,8 @@ function Products( props ){
     const [products, setProducts] = useState(false);
     const category = props.location.state;
     
-    useEffect(() => {
-        (async () => {
+    useEffect((category) => {
+        (async (category) => {
             if(category){
                 let gettedProducts = await getProductsByCategory(category);
                 setProducts(gettedProducts);

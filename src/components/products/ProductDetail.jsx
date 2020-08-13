@@ -5,10 +5,10 @@ function ProductDetail( props ){
     
     const [product, setProduct] = useState(false);
     const productName = props.location.state.name;        
-    useEffect(() => {
-        (async () => {
+    
+    useEffect((productName) => {
+        (async (productName) => {
             const gettedProducts = await getProduct(productName);
-            console.log(productName)
             setProduct(gettedProducts);
         })()
       }, []);
