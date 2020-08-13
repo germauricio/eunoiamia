@@ -4,10 +4,10 @@ import ProductCard from './products/ProductCard';
 
 function Products( props ){
     const [products, setProducts] = useState(false);
-    
+    const category = props.location.state;
+
     useEffect( () => {
         (async () => {
-            const category = props.location.state;
     
             if(category){
                 let gettedProducts = await getProductsByCategory(category);
@@ -17,7 +17,7 @@ function Products( props ){
                 setProducts(gettedProducts);    
             }        
         })()
-    }, []);
+    }, [category]);
 
     return(
         <div className="container">

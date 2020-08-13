@@ -4,14 +4,14 @@ import {getProduct} from '../../services/apiService';
 function ProductDetail( props ){
     
     const [product, setProduct] = useState(false);
+    const productName = props.location.state.name;        
     
     useEffect(() => {
         (async () => {
-            const productName = props.location.state.name;        
             const gettedProducts = await getProduct(productName);
             setProduct(gettedProducts);
         })()
-      }, []);
+      }, [productName]);
     
     return(
         <div className ="container">
