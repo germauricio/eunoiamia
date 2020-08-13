@@ -4,10 +4,11 @@ import ProductCard from './products/ProductCard';
 
 function Products( props ){
     const [products, setProducts] = useState(false);
-    const category = props.location.state;
     
-    useEffect((category) => {
-        (async (category) => {
+    useEffect( () => {
+        (async () => {
+            const category = props.location.state;
+    
             if(category){
                 let gettedProducts = await getProductsByCategory(category);
                 setProducts(gettedProducts);
