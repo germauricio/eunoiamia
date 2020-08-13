@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import getProducts from '../services/apiService';
+import {getProducts, getProductsByCategory} from '../services/apiService';
 import ProductCard from './products/ProductCard';
 
-function Products(){
+function Products( props ){
     const [products, setProducts] = useState(false);
-
+    const category = props.location.state;
+    
     useEffect(() => {
-        (async () => {        
-            const gettedProducts = await getProducts();
-            setProducts(gettedProducts);
+        (async () => {
+            if(category){
+                let gettedProducts = await getProductsByCategory(category);
+                setProducts(gettedProducts);
+            }else{
+                let gettedProducts = await getProducts();
+                setProducts(gettedProducts);    
+            }        
         })()
-      }, []);
+    }, []);
 
     return(
         <div className="container">

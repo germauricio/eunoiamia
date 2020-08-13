@@ -23,6 +23,7 @@ function App() {
           <Route path = "/info" component = { Info } />
           <Route path = "/contact" component = { Contact } />
           <Route path = "/products" component = { Products } />
+          <Route path = "/products/category/:category" render= {(props) => <Products {...props} />} />
           <Route path = "/product/:name" render= {(props) => <ProductDetail {...props} />} />
         </Switch>
         <Footer />
