@@ -45,11 +45,10 @@ h2 {
   text-align: center;
 }
 
-.div-contact {
-  width: 50%;
+.div-contact,
+.div-contact-ig  {
   float: right;
   text-align:center;
-  padding-top: 70px;
 }
 
 .h2-info {
@@ -265,10 +264,9 @@ h2 {
 }
 
 .product-tumb {
-    display: flex;
     align-items: center;
     justify-content: center;
-    height: 200px;
+    height: auto;
     background: #f0f0f0;
 }
 
@@ -421,10 +419,19 @@ nav ul li a{
   .checkbtn{
     display: block;
   }
-
+  .product-card {
+    width: 170px;}
   .display-image {
     padding: 1%;
     width: 49%
+  }
+
+  .div-contact-ig{
+    width:100%;
+    padding-bottom: 4em;
+  }
+  .div-contact {
+    width:100%;
   }
 
   ul{

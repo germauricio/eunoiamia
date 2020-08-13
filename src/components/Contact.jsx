@@ -5,6 +5,7 @@ const Contact = () => {
         <div>
             <br></br>
             <h1 className="h1-info">Contacto</h1>
+            <div className="container">
             <a href="https://www.facebook.com/eunoia.mia/"
             target="_blank"
             rel="noopener noreferrer"
@@ -14,39 +15,19 @@ const Contact = () => {
                     <h2 className="h2-contact">Eunoia Mia</h2>
                 </div>
             </a>
+
             <a 
             href="https://www.instagram.com/eunoia.mia/"
             target="_blank"
             rel="noopener noreferrer"
             className="link"
             >
-                <div className = "div-contact">
+                <div className = "div-contact-ig">
                     <img alt="logoig" src="logo-instagram.png" height="250px" />
                     <h2 className="h2-contact">@eunoia.mia</h2>
                 </div>
-            </a>            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>   
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-
+            </a>            </div>
+            
 
         </div>
     );
