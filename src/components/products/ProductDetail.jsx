@@ -22,7 +22,7 @@ function ProductDetail( props ){
                 </div>
                 <div class="right-column">
                     <div class="product-detail-description">
-                        <span>Cuidado capilar</span>
+                        <span>{product.category}</span>
                         <h1>{product.description}</h1>
                         <p>{product.detail}</p>
                     </div>

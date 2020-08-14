@@ -8,7 +8,6 @@ function Products( props ){
 
     useEffect( () => {
         (async () => {
-    
             if(category){
                 let gettedProducts = await getProductsByCategory(category);
                 setProducts(gettedProducts);
