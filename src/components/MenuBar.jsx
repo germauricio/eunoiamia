@@ -47,7 +47,7 @@ const MenuBar = () => {
           <li><Link to = "/contact" className = "menu-btn">Contacto</Link></li>
         </ul>
         <div className="cart">
-          <Link to="/cart"><img src="/shop.ico" height="50px" /></Link>
+          <Link to="/cart"><img alt="cart" src="/shop.ico" height="50px" /></Link>
         </div>
       </nav>
     </div>

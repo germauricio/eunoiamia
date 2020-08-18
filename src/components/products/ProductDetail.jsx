@@ -23,10 +23,10 @@ function ProductDetail( props ){
       <div><img src={`/products/${product.image}`}/></div>
     </div> 
     <div class="img-small-wrap">
-      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
-      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
-      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
-      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
+      <div class="item-gallery"> <img alt="alt1" src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
+      <div class="item-gallery"> <img alt="alt2" src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
+      <div class="item-gallery"> <img alt="alt3" src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
+      <div class="item-gallery"> <img alt="alt4" src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
     </div> 
     </article> 
             </aside>

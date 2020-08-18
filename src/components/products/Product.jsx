@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../services/cartContext';
 
 const Product = ({product}) => {
-    const {cartProvider, quantityProvider} = useContext(CartContext); 
+    const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
     const [quantity, setQuantity] = useState(0);
 
@@ -32,7 +32,7 @@ const Product = ({product}) => {
                     <div className="product-links">
                         
                         {
-                            quantity == 0 ? (
+                            quantity === 0 ? (
                                 <button className="addcart" onClick={addToCart}>
                                     <img src="/shop.ico" height="30px" alt="carrito"/>
                                 </button>) : (
