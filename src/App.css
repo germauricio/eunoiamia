@@ -389,6 +389,20 @@ nav ul li a:hover{
   color:black;
   text-decoration: none;
 }
+.increase{
+  color:white !important;
+  background-color:black ;
+  float:left;
+  width:20px;
+  text-align:center;
+}
+.decrease{
+  color:white !important;
+  background-color:red ;
+  float:left;
+  width:10px;
+  text-align:center;
+}
 
 .checkbtn{
   font-size: 30px;
@@ -406,6 +420,17 @@ nav ul li a:hover{
 @media (max-width: 858px){
   .checkbtn{
     display: block;
+  }
+
+  .left-column img {
+    width: 300px;
+    right: 0;
+    top: -65px;
+    left: initial;
+  }
+
+  .carousel-container{
+    width:100%
   }
   
   .left-column,
@@ -454,12 +479,6 @@ nav ul li a:hover{
   } 
 }
 
-.container-product-detail {
-  max-width: 1200px;
-  text-align: left;  
-  padding: 15px;
-  display: flex;
-}
 
 .left-column {
   width: 65%;
@@ -484,40 +503,10 @@ nav ul li a:hover{
   transform: scale(1.5);
 }
 
-.product-detail-description {
-  border-bottom: 1px solid #E1E8EE;
-  margin-bottom: 20px;
-}
-.product-detail-description span {
-  font-size: 12px;
-  color: #358ED7;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-.product-detail-description h1 {
-  font-weight: 300;
-  font-size: 52px;
-  color: #43484D;
-  letter-spacing: -2px;
-}
-.product-detail-description p {
-  font-size: 16px;
-  font-weight: 300;
-  color: #86939E;
-  line-height: 24px;
-}
-
-.product-detail-price {
-  display: flex;
-  align-items: center;
-}
- 
-.product-detail-price span {
-  font-size: 26px;
-  font-weight: 300;
-  color: #43474D;
-  margin-right: 20px;
+.addcart{
+  border:none;
+  outline:transparent !important;
+  background-color: transparent !important;
 }
  
 .cart-btn {
@@ -532,4 +521,44 @@ nav ul li a:hover{
 }
 .cart-btn:hover {
   background-color: #64af3d;
+}
+
+
+.gallery-wrap .img-big-wrap img {
+  height: 450px;
+  width: auto;
+  display: inline-block;
+  cursor: zoom-in;
+}
+
+
+.gallery-wrap .img-small-wrap .item-gallery {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #ddd;
+  margin: 7px 2px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.gallery-wrap .img-small-wrap {
+  text-align: center;
+}
+.gallery-wrap .img-small-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: zoom-in;
+}
+.btn-primary-buy{
+  background-color: rgb(77, 152, 193) !important;
+  outline: none !important;
+  border:none !important;
+  color:white !important;
+}
+
+.cart{
+  text-align:right;
+  padding: 13px;
 }

@@ -14,28 +14,55 @@ function ProductDetail( props ){
       }, [productName]);
     
     return(
-        <div className ="container">
-            { product ? (
-                <div class="container-product-detail">
-                <div class="left-column">
-                    <img src={`/products/${product.image}`} alt=""/>
-                </div>
-                <div class="right-column">
-                    <div class="product-detail-description">
-                        <span>{product.category}</span>
-                        <h1>{product.description}</h1>
-                        <p>{product.detail}</p>
-                    </div>
-                    <div class="product-detail-price">
-                        <span>${product.price}</span>
-                        <button class="cart-btn">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
-        ):(
-            <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
-        )}
-        </div>
+        <div class="container">
+    <div class="card">
+        <div class="row">
+            <aside class="col-sm-5 border-right" >
+    <article class="gallery-wrap"> 
+    <div class="img-big-wrap">
+      <div><img src={`/products/${product.image}`}/></div>
+    </div> 
+    <div class="img-small-wrap">
+      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
+      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
+      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
+      <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
+    </div> 
+    </article> 
+            </aside>
+            <aside class="col-sm-7">
+    <article class="card-body p-5">
+        <h3 class="title mb-3">{product.description}</h3>
+    
+    <p class="price-detail-wrap"> 
+        <span class="price h3 text-warning"> 
+            <span class="currency">$</span><span class="num">{product.price}</span>
+        </span> 
+    </p> 
+    <dl class="item-property">
+      <dt>Descripción</dt>
+      <dd><p>{product.detail}</p></dd>
+    </dl>
+    
+    <hr></hr>
+                <div class="item-property">
+                  <label className="px-4">Cantidad: </label>
+                      <select  width="20px">
+                          <option> 1 </option>
+                          <option> 2 </option>
+                          <option> 3 </option>
+                      </select>
+                </div>  
+        <hr></hr>
+        <button class="btn btn-lg btn-primary-buy text-uppercase m-4"> Comprar </button>
+        <button class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Añadir al carrito </button>
+    </article>
+            </aside> 
+        </div> 
+    </div> 
+    
+    
+    </div>
     )
     
 }

@@ -2,8 +2,7 @@ import React from 'react'
 
 const WhoAreWe = () => {
     return(
-        <div>
-            <br></br>
+        <div className="p-4">
             <h1 className = "h1-info">¿Quiénes somos?</h1>
             <h1>
                 <img alt="separador" src="separadorhojas.png" height="100px" />
@@ -29,8 +28,6 @@ const WhoAreWe = () => {
             <h1>
                 <img alt="logo" src="eunoiamialogo.png" height="200px" />
             </h1>
-            <br></br>
-            <br></br>
             <br></br>
 
         </div>

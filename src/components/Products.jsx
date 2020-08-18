@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {getProducts, getProductsByCategory} from '../services/apiService';
-import ProductCard from './products/ProductCard';
+import ProductList from './products/ProductList';
 
 function Products( props ){
     const [products, setProducts] = useState(false);
@@ -21,7 +21,7 @@ function Products( props ){
     return(
         <div className="container">
         { products ? (
-            <ProductCard products={products} />
+            <ProductList products={products} />
         ) : (
             <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
         )}

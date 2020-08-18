@@ -9,6 +9,7 @@ import Contact from './components/Contact'
 import Products from './components/Products'
 import ProductDetail from './components/products/ProductDetail'
 import Footer from './components/Footer'
+import Cart from './components/Cart'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path = "/info" component = { Info } />
           <Route path = "/contact" component = { Contact } />
           <Route path = "/products" component = { Products } />
+          <Route path = "/cart" component = { Cart } />
           <Route path = "/products/category/:category" render= {(props) => <Products {...props} />} />
           <Route path = "/product/:name" render= {(props) => <ProductDetail {...props} />} />
         </Switch>

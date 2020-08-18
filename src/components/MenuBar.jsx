@@ -45,7 +45,10 @@ const MenuBar = () => {
           <li><Link to = "/whoarewe" className = "menu-btn">Quiénes somos</Link></li>
           <img alt="separator" src="/separator.png" height="30px" />
           <li><Link to = "/contact" className = "menu-btn">Contacto</Link></li>
-        </ul> 
+        </ul>
+        <div className="cart">
+          <Link to="/cart"><img src="/shop.ico" height="50px" /></Link>
+        </div>
       </nav>
     </div>
   );
