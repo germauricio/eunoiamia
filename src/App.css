@@ -529,6 +529,7 @@ nav ul li a:hover{
   width: auto;
   display: inline-block;
   cursor: zoom-in;
+  max-width: 100%;
 }
 
 

@@ -20,7 +20,7 @@ function ProductDetail( props ){
             <aside class="col-sm-5 border-right" >
     <article class="gallery-wrap"> 
     <div class="img-big-wrap">
-      <div><img src={`/products/${product.image}`}/></div>
+      <div><img alt={`${product.name}`} src={`/products/${product.image}`}/></div>
     </div> 
     <div class="img-small-wrap">
       <div class="item-gallery"> <img alt="alt1" src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
