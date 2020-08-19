@@ -1,12 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import Dropdown from 'react-bootstrap/esm/Dropdown';
 import DropdownItem from 'react-bootstrap/esm/DropdownItem';
+import {CartContext} from '../services/cartContext';
 
 const useForceUpdate = () => useState()[1];
 
 const MenuBar = () => {
   const forceUpdate = useForceUpdate();
+  const {cartProvider} = useContext(CartContext); 
+  const [cart, setCart] = cartProvider;
+  const items = cart.reduce((acc, curr) => acc + parseInt(curr.quantity, 10), 0)
 
   return (
     <div>
@@ -47,7 +51,14 @@ const MenuBar = () => {
           <li><Link to = "/contact" className = "menu-btn">Contacto</Link></li>
         </ul>
         <div className="cart">
-          <Link to="/cart"><img alt="cart" src="/shop.ico" height="50px" /></Link>
+          <Link to="/cart"><img alt="cart" src="/shop.ico" height="50px" />
+              {
+                cart.length ? (                  
+                   <span>{items}</span>
+                ) : (
+                  <span>0</span>
+                )
+              }</Link>
         </div>
       </nav>
     </div>

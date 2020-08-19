@@ -1,30 +1,50 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../services/cartContext';
 
 const Product = ({product}) => {
     const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
-    const [quantity, setQuantity] = useState(1);
 
     const addToCart = () => {
         const currProduct = {
             description: product.description,
             price: product.price,
-            quantity: quantity,
+            quantity: 1,
             image: product.image,
             id: product.id
         }
         setCart(curr => [...curr, currProduct]);
     }
     
-    const removeFromCart = (productId) => {
-        setCart(cart.filter((item) => item.id !== productId ));
+    const decreaseQuantity = (productId) => {
+        const cartProduct = cart.find(product => product.id == productId);
+        setCart(cart.filter((item) => item.id !== product.id ));
+        const currProduct = {
+            description: product.description,
+            price: product.price,
+            quantity: cartProduct.quantity - 1,
+            image: product.image,
+            id: product.id
+        }
+        setCart(curr => [...curr, currProduct]);
+        if(cartProduct.quantity == 1){
+            setCart(cart.filter((item) => item.id !== productId ));
+        }
     }
 
     const increaseQuantity = (productId) => {
-
-    }
+        const cartProduct = cart.find(product => product.id == productId);
+        setCart(cart.filter((item) => item.id !== product.id ));
+        const currProduct = {
+            description: product.description,
+            price: product.price,
+            quantity: cartProduct.quantity + 1,
+            image: product.image,
+            id: product.id
+        }
+        setCart(curr => [...curr, currProduct]);
+      }
 
     return(
         <div class="product-card">
@@ -46,11 +66,11 @@ const Product = ({product}) => {
                                 </button>) : (
                                     <div >
                                         <br></br>
-                                        <button className="decrease" onClick={()=>{removeFromCart(product.id)}}>
+                                        <button className="decrease" onClick={()=>{decreaseQuantity(product.id)}}>
                                             -
                                         </button>
                                         <button className="increase" onClick={()=>{increaseQuantity(product.id)}}>
-                                            -
+                                            +
                                         </button>
                                     </div>
                                 )
