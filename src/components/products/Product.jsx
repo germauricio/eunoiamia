@@ -5,19 +5,27 @@ import { CartContext } from '../../services/cartContext';
 const Product = ({product}) => {
     const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
-    const [quantity, setQuantity] = useState(0);
+    const [quantity, setQuantity] = useState(1);
 
     const addToCart = () => {
-        setQuantity(1);
-        console.log(quantity)
         const currProduct = {
             description: product.description,
             price: product.price,
             quantity: quantity,
-            image: product.image
+            image: product.image,
+            id: product.id
         }
         setCart(curr => [...curr, currProduct]);
-    } 
+    }
+    
+    const removeFromCart = (productId) => {
+        setCart(cart.filter((item) => item.id !== productId ));
+    }
+
+    const increaseQuantity = (productId) => {
+
+    }
+
     return(
         <div class="product-card">
             <Link to = {{ pathname:`/product/${product.name}`, state: product}} className = "product-a">
@@ -32,13 +40,16 @@ const Product = ({product}) => {
                     <div className="product-links">
                         
                         {
-                            quantity === 0 ? (
+                            !cart.some((item) => item.id === product.id ) ? (
                                 <button className="addcart" onClick={addToCart}>
                                     <img src="/shop.ico" height="30px" alt="carrito"/>
                                 </button>) : (
                                     <div >
                                         <br></br>
-                                        <button className="decrease" onClick={()=>{setQuantity(quantity-1); console.log(quantity)}}>
+                                        <button className="decrease" onClick={()=>{removeFromCart(product.id)}}>
+                                            -
+                                        </button>
+                                        <button className="increase" onClick={()=>{increaseQuantity(product.id)}}>
                                             -
                                         </button>
                                     </div>
