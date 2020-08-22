@@ -58,23 +58,9 @@ const Product = ({product}) => {
                 <div className="product-bottom-details">
                     <div className="product-price">${product.price}</div>
                     <div className="product-links">
-                        
-                        {
-                            !cart.some((item) => item.id === product.id ) ? (
-                                <button className="addcart" onClick={addToCart}>
-                                    <img src="/shop.ico" height="30px" alt="carrito"/>
-                                </button>) : (
-                                    <div >
-                                        <br></br>
-                                        <button className="decrease" onClick={()=>{decreaseQuantity(product.id)}}>
-                                            -
-                                        </button>
-                                        <button className="increase" onClick={()=>{increaseQuantity(product.id)}}>
-                                            +
-                                        </button>
-                                    </div>
-                                )
-                        }
+                        <button className="addcart" onClick={addToCart}>
+                        <Link to="/cart"><img src="/shop.ico" height="30px" alt="carrito"></img></Link>
+                        </button>
                     </div>
                 </div>
             </div>

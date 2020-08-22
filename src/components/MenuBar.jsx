@@ -16,7 +16,7 @@ const MenuBar = () => {
     <div>
       <nav className="menu-bar">
         <input type="checkbox" id="check"/>
-        <label for="check" class="checkbtn">
+        <label style={{float:"left"}}for="check" className="checkbtn ml-3">
           <img src="/hamburguer.png" height="30px" alt="hamburguer"></img>
         </label>
         <ul>
