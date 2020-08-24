@@ -26,7 +26,7 @@ const Cart = () => {
 
     return(
         !totalPrice ? (
-            <div className ="container">
+            <div className ="container mb-4">
                 <img src="carritovacio.png" height="400px" alt="carritovacio"/>
             </div>
         ) : (
