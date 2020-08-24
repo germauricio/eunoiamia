@@ -1,12 +1,19 @@
 import React, { useContext, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../../services/cartContext';
+import { CartContext, addToCart, decreaseQuantity, increaseQuantity } from '../../services/cartContext';
+
+
 
 const Product = ({product}) => {
     const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
 
     const addToCart = () => {
+        const cartProduct = cart.find(item => item.id == product.id);
+        if(cartProduct){
+            cartProduct.quantity += 1;
+        }
+        else{
         const currProduct = {
             description: product.description,
             price: product.price,
@@ -14,38 +21,10 @@ const Product = ({product}) => {
             image: product.image,
             id: product.id
         }
-        setCart(curr => [...curr, currProduct]);
+            setCart(curr => [...curr, currProduct]);
+        }
     }
     
-    const decreaseQuantity = (productId) => {
-        const cartProduct = cart.find(product => product.id == productId);
-        setCart(cart.filter((item) => item.id !== product.id ));
-        const currProduct = {
-            description: product.description,
-            price: product.price,
-            quantity: cartProduct.quantity - 1,
-            image: product.image,
-            id: product.id
-        }
-        setCart(curr => [...curr, currProduct]);
-        if(cartProduct.quantity == 1){
-            setCart(cart.filter((item) => item.id !== productId ));
-        }
-    }
-
-    const increaseQuantity = (productId) => {
-        const cartProduct = cart.find(product => product.id == productId);
-        setCart(cart.filter((item) => item.id !== product.id ));
-        const currProduct = {
-            description: product.description,
-            price: product.price,
-            quantity: cartProduct.quantity + 1,
-            image: product.image,
-            id: product.id
-        }
-        setCart(curr => [...curr, currProduct]);
-      }
-
     return(
         <div class="product-card">
             <Link to = {{ pathname:`/product/${product.name}`, state: product}} className = "product-a">
@@ -58,8 +37,8 @@ const Product = ({product}) => {
                 <div className="product-bottom-details">
                     <div className="product-price">${product.price}</div>
                     <div className="product-links">
-                        <button className="addcart" onClick={addToCart}>
-                        <Link to="/cart"><img src="/shop.ico" height="30px" alt="carrito"></img></Link>
+                        <button className="addcart" onClick={ (product) => addToCart(product)}>
+                            <img src="/shop.ico" height="30px" alt="carrito"></img>
                         </button>
                     </div>
                 </div>

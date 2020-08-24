@@ -1,11 +1,25 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {getProduct} from '../../services/apiService';
+import {CartContext} from '../../services/cartContext';
 
 function ProductDetail( props ){
     
     const [product, setProduct] = useState(false);
     const productName = props.location.state.name;        
-    
+    const {cartProvider} = useContext(CartContext); 
+    const [cart, setCart] = cartProvider;
+
+    const addToCart = () => {
+        const currProduct = {
+            description: product.description,
+            price: product.price,
+            quantity: 1,
+            image: product.image,
+            id: product.id
+        }
+        setCart(curr => [...curr, currProduct]);
+    }
+
     useEffect(() => {
         (async () => {
             const gettedProducts = await getProduct(productName);
@@ -55,7 +69,7 @@ function ProductDetail( props ){
                 </div>  
         <hr></hr>
         <button class="btn btn-lg btn-primary-buy text-uppercase m-4"> Comprar </button>
-        <button class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Añadir al carrito </button>
+        <button onClick = {() => {addToCart(product)}}class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Añadir al carrito </button>
     </article>
             </aside> 
         </div> 

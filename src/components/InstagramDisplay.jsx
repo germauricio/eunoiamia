@@ -13,7 +13,7 @@ function InstagramDisplay(){
 
     return(
         <div>
-            <h2>@eunoia.mia</h2>
+            <h2 className="h1-info">@eunoia.mia</h2>
             <div className="display">
             { photos && (
                 photos.map( (photo) => {

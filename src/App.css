@@ -349,8 +349,11 @@ h2 {
   color: #fff;
   font-family: 'Amatic SC';
   font-size: 10px;    
-  height: 20%;
+  height: 13%;
   padding-top: 3em;
+  position: static;
+  bottom: 0; 
+  width: 100%;
 }
 
 .icon-footer {
@@ -427,6 +430,10 @@ nav ul li a:hover{
   .cart img{
     margin-top: 14px;
   }
+
+  .items-number{
+    margin-top :20px;
+  }
   
   .checkbtn{
     display: block;
@@ -469,7 +476,7 @@ nav ul li a:hover{
     width: 80%;
     height: 400px;
     background: #f1f1f1;
-    top: 25%;
+    top: 170px;
     left: -100%;
     text-align: center;
     transition: all .5s;
@@ -572,7 +579,9 @@ nav ul li a:hover{
 .cart{
   text-align:right;
   padding-bottom: 13px;
-  padding-right:30px
+  padding-right:30px;
+  display: inline-flex;
+  float:right
 }
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
@@ -642,14 +651,6 @@ nav ul li a:hover{
 .product-image-cart,
 .product-details-cart {
   float: left;
-}
-
-.price-cart:before,
-.subtotal:before,
-.subtotal-value:before,
-.total-value:before,
-.promo-value:before {
-  content: '£';
 }
 
 .hide {
@@ -904,6 +905,21 @@ nav ul li a:hover{
   font-size: 0.625rem;
   height: 34px;
   width: 100%;
+}
+
+.items-number{
+  background-color:#cb2424;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px; 
+  font-size:10px;
+  color:white;
+  text-decoration: none;
+  float:left;
+  text-align: center;
+}
+.items-number p {
+  padding-top:2px
 }
 
 @media screen and (max-width: 640px) {

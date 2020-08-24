@@ -51,14 +51,12 @@ const MenuBar = () => {
           <li><Link to = "/contact" className = "menu-btn">Contacto</Link></li>
         </ul>
         <div className="cart">
-          <Link to="/cart"><img alt="cart" src="/shop.ico" height="50px" />
-              {
-                cart.length ? (                  
-                   <span>{items}</span>
-                ) : (
-                  <span>0</span>
-                )
-              }</Link>
+          <Link to="/cart">{
+                cart.length !== 0 && (                  
+                   <div className="items-number"><p>{items}</p></div>
+                )}
+                <img alt="cart" src="/shop.ico" height="50px" />
+              </Link>
         </div>
       </nav>
     </div>
