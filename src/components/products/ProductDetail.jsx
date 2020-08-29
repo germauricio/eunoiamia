@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {getProduct} from '../../services/apiService';
 import {CartContext} from '../../services/cartContext';
+import {MercadoPagoButton} from './MercadoPagoButton.jsx';
 
 function ProductDetail( props ){
     
@@ -68,8 +69,8 @@ function ProductDetail( props ){
                       </select>
                 </div>  
         <hr></hr>
-        <button class="btn btn-lg btn-primary-buy text-uppercase m-4"> Comprar </button>
-        <button onClick = {() => {addToCart(product)}}class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Añadir al carrito </button>
+        <MercadoPagoButton />
+        <button onClick = {() => {addToCart(product)}} class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Añadir al carrito </button>
     </article>
             </aside> 
         </div> 
