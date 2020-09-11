@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-    
+import Link from './Link';
+
 const Footer = () => {
     return(
         <div className="footer">
@@ -14,11 +14,11 @@ const Footer = () => {
                 </a>
             </div>
             <div class="bottom-footer">
-                <Link to = "/" className = "bottom-footer-bar">Inicio&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</Link>
-                <Link to = "/products" className = "bottom-footer-bar">Productos&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</Link>
-                <Link to = "/contact" className = "bottom-footer-bar">Contacto</Link>
+                <Link path = "/" linkClass = "bottom-footer-bar" title="Inicio"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                <Link path = "/products" linkClass = "bottom-footer-bar" title="Productos" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+                <Link path = "/contact" linkClass = "bottom-footer-bar" title="Contacto"/>
             </div>
         </div>
     );

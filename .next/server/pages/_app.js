@@ -129,8 +129,8 @@ const Header = () => {
 };
 
 /* harmony default export */ var components_Header = (Header);
-// EXTERNAL MODULE: external "react-router-dom"
-var external_react_router_dom_ = __webpack_require__("oncg");
+// EXTERNAL MODULE: ./components/Link.jsx
+var Link = __webpack_require__("AesL");
 
 // CONCATENATED MODULE: ./components/Footer.jsx
 var Footer_jsx = external_react_default.a.createElement;
@@ -156,24 +156,24 @@ const Footer = () => {
     src: "/ig-icon.png"
   }))), Footer_jsx("div", {
     class: "bottom-footer"
-  }, Footer_jsx(external_react_router_dom_["Link"], {
-    to: "/",
-    className: "bottom-footer-bar"
-  }, "Inicio\xA0\xA0\xA0\xA0 \xA0\xA0\xA0\xA0\xA0\xA0\xA0|"), Footer_jsx(external_react_router_dom_["Link"], {
-    to: "/products",
-    className: "bottom-footer-bar"
-  }, "Productos\xA0\xA0\xA0\xA0 \xA0\xA0\xA0\xA0\xA0\xA0\xA0|"), Footer_jsx(external_react_router_dom_["Link"], {
-    to: "/contact",
-    className: "bottom-footer-bar"
-  }, "Contacto")));
+  }, Footer_jsx(Link["a" /* default */], {
+    path: "/",
+    linkClass: "bottom-footer-bar",
+    title: "Inicio"
+  }), "\xA0\xA0\xA0\xA0\xA0\xA0\xA0|", Footer_jsx(Link["a" /* default */], {
+    path: "/products",
+    linkClass: "bottom-footer-bar",
+    title: "Productos"
+  }), "\xA0\xA0\xA0\xA0\xA0\xA0\xA0|", Footer_jsx(Link["a" /* default */], {
+    path: "/contact",
+    linkClass: "bottom-footer-bar",
+    title: "Contacto"
+  })));
 };
 
 /* harmony default export */ var components_Footer = (Footer);
 // EXTERNAL MODULE: ./services/cartContext.js
 var cartContext = __webpack_require__("KbO0");
-
-// EXTERNAL MODULE: ./components/Link.jsx
-var Link = __webpack_require__("AesL");
 
 // CONCATENATED MODULE: ./components/MenuBar.jsx
 var MenuBar_jsx = external_react_default.a.createElement;
@@ -251,9 +251,14 @@ const MenuBar = () => {
 };
 
 /* harmony default export */ var components_MenuBar = (MenuBar);
+// EXTERNAL MODULE: external "next/head"
+var head_ = __webpack_require__("xnum");
+var head_default = /*#__PURE__*/__webpack_require__.n(head_);
+
 // CONCATENATED MODULE: ./pages/_app.js
 
 var _app_jsx = external_react_default.a.createElement;
+
 
 
 
@@ -265,7 +270,7 @@ function MyApp({
   Component,
   pageProps
 }) {
-  return _app_jsx(cartContext["b" /* CartProvider */], null, _app_jsx(components_Header, null), _app_jsx(components_MenuBar, null), _app_jsx(Component, pageProps));
+  return _app_jsx(cartContext["b" /* CartProvider */], null, _app_jsx(head_default.a, null, _app_jsx("title", null, "Eunoia Mia")), _app_jsx(components_Header, null), _app_jsx(components_MenuBar, null), _app_jsx(Component, pageProps), _app_jsx(components_Footer, null));
 }
 
 /* harmony default export */ var _app = __webpack_exports__["default"] = (MyApp);
@@ -344,17 +349,17 @@ module.exports = require("react");
 
 /***/ }),
 
-/***/ "oncg":
-/***/ (function(module, exports) {
-
-module.exports = require("react-router-dom");
-
-/***/ }),
-
 /***/ "q4sD":
 /***/ (function(module, exports) {
 
 
+
+/***/ }),
+
+/***/ "xnum":
+/***/ (function(module, exports) {
+
+module.exports = require("next/head");
 
 /***/ }),
 
