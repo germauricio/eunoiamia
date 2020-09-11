@@ -6,7 +6,7 @@ const handle = app.getRequestHandler()
 const mercadopago = require('mercadopago');
 var bodyParser = require('body-parser')
 
-require('dotenv').config;
+require('dotenv').config();
 
 app.prepare().then(() => {
   const server = express();
