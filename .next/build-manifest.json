@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/xZQ6jwvxYf2NDsGtACX9c/_buildManifest.js",
-    "static/xZQ6jwvxYf2NDsGtACX9c/_ssgManifest.js"
+    "static/UIEPJVQSycm09zabP479p/_buildManifest.js",
+    "static/UIEPJVQSycm09zabP479p/_ssgManifest.js"
   ],
   "pages": {
     "/": [
@@ -75,7 +75,7 @@
       "static/chunks/7303f76b5efeafed252a3ca7466d62753773fe31.d18b4cd5b9181f9df943.js",
       "static/chunks/8e62a4d82a12f0f8950b489de5ae257e8a67ae4f.35547f69f63cd511bc06.js",
       "static/chunks/2c4e4e32d2df615af9d909433e3e8931234eb0dc.ae40a744c18f4ab235ab.js",
-      "static/chunks/pages/products/name/[name]-f23b3f4d9c9746230b57.js"
+      "static/chunks/pages/products/name/[name]-6d1c8b3506aae38272f0.js"
     ],
     "/whoarewe": [
       "static/chunks/main-ed2580f24238df7cd55e.js",
