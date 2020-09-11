@@ -1,9 +1,7 @@
 const express = require('express')
 const next = require('next')
-const router = require('express').Router();
 const port = parseInt(process.env.PORT, 10) || 8080
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
+const app = next(true)
 const handle = app.getRequestHandler()
 const mercadopago = require('mercadopago');
 var bodyParser = require('body-parser')
@@ -19,7 +17,6 @@ app.prepare().then(() => {
           mercadopago.configure({
             access_token: process.env.MERCADOPAGO_CLIENT_ID
             });
-
             let preference = {
             items: [
                 {

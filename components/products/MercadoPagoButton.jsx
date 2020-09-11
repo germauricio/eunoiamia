@@ -1,15 +1,10 @@
 import React, {useEffect} from 'react';
+import { generatePreference } from '../../services/mercadoPago';
 
 export default function MercadoPagoButton ({ price, name, quantity }) {
   const setMercadoPagoPreferences = async () => {
-    const initPoint = await fetch('/api/payments/mercado_preference', {
-      method: 'POST',
-      body: JSON.stringify({price, name}),
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-    }).then(res => res.json());
+    const initPoint = await generatePreference(price, name)
+      .then(res => res.json());
     const script = document.createElement('script');
     script.src = 'https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js';
     script.async = true;
