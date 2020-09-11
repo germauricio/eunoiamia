@@ -1,0 +1,1 @@
+{"ast":null,"code":"import axios from \"axios\";\nexport const generatePreference = async (price, name) => {\n  return await axios.post('https://eunoiamiaapi.herokuapp.com/api/payments/mercado_preference', {\n    data: {\n      'price': price,\n      'name': name\n    }\n  });\n};","map":null,"metadata":{},"sourceType":"module"}

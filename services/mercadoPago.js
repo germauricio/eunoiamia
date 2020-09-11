@@ -1,10 +1,13 @@
+import axios from "axios";
+
+const url = "https://eunoiamiaapi.herokuapp.com"
+
 export const generatePreference = async (price, name) => {
-    return (await fetch('/api/payments/mercado_preference', {
-        method: 'POST',
-        body: JSON.stringify({price, name}),
+    return (await axios.post(url + '/api/payments/mercado_preference', JSON.stringify({
+        price, name
+      }), {
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         }
-    }));
+    })).data.preferenceId;
 }

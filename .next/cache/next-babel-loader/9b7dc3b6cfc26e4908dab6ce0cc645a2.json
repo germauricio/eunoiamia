@@ -1,0 +1,1 @@
+{"ast":null,"code":"import axios from \"axios\";\nexport const generatePreference = async (price, name) => {\n  return await axios.post('http://localhost:5000/api/payments/mercado_preference', JSON.stringify({\n    price,\n    name\n  }), {\n    headers: {\n      'Content-Type': 'application/json'\n    }\n  });\n};","map":null,"metadata":{},"sourceType":"module"}
