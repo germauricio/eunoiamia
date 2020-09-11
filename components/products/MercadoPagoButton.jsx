@@ -4,7 +4,7 @@ import { generatePreference } from '../../services/mercadoPago';
 export default function MercadoPagoButton ({ price, name, quantity }) {
   const setMercadoPagoPreferences = async () => {
     const initPoint = await generatePreference(price, name)
-      .then(res => res.json());
+      .then(res => res.json())
     const script = document.createElement('script');
     script.src = 'https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js';
     script.async = true;

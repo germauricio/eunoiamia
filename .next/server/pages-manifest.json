@@ -1,7 +1,14 @@
 {
   "/_app": "pages/_app.js",
+  "/cart": "pages/cart.html",
+  "/contact": "pages/contact.html",
+  "/": "pages/index.html",
+  "/info": "pages/info.html",
+  "/products": "pages/products.html",
+  "/products/category/[category]": "pages/products/category/[category].html",
+  "/products/name/[name]": "pages/products/name/[name].html",
+  "/whoarewe": "pages/whoarewe.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/products/name/[name]": "pages/products/name/[name].js",
-  "/products": "pages/products.js"
+  "/404": "pages/404.html"
 }
