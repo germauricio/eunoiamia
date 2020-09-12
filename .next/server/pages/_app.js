@@ -219,10 +219,43 @@ const MenuBar = () => {
     alt: "separator",
     src: "/separator.png",
     height: "30px"
-  }), MenuBar_jsx("li", null, MenuBar_jsx(Link["a" /* default */], {
-    title: "Productos",
-    path: "/products"
-  })), MenuBar_jsx("img", {
+  }), MenuBar_jsx("li", null, MenuBar_jsx("div", {
+    class: "dropdown"
+  }, MenuBar_jsx("button", {
+    class: "dropbtn"
+  }, "Dropdown"), MenuBar_jsx("div", {
+    class: "dropdown-content"
+  }, MenuBar_jsx(Link["a" /* default */], {
+    path: "/products",
+    title: "Todos"
+  }), MenuBar_jsx(Link["a" /* default */], {
+    path: "/products/category/combos",
+    title: "Combos"
+  }), MenuBar_jsx(Link["a" /* default */], {
+    path: "/products/category/cuidado-capilar",
+    title: "Cuidado capilar"
+  }), MenuBar_jsx(Link["a" /* default */], {
+    path: "/products/category/cuidado-de-la-piel",
+    title: "Cuidado de la piel"
+  }), MenuBar_jsx(Link["a" /* default */], {
+    path: "/products/category/salud-bucal",
+    title: "Salud bucal"
+  }), MenuBar_jsx(Link["a" /* default */], {
+    path: "/products/category/desodorante-natural",
+    title: "Desodorante natural"
+  }), MenuBar_jsx(Link["a" /* default */], {
+    path: "/products/category/jabones-vegetales",
+    title: "Jabones vegetales"
+  }), MenuBar_jsx(Link["a" /* default */], {
+    path: "/products/category/accesorios-sustentables",
+    title: "Accesorios sustentables"
+  }), MenuBar_jsx(Link["a" /* default */], {
+    path: "/products/category/almohadillas-termicas",
+    title: "Almohadillas t\xE9rmicas"
+  }), MenuBar_jsx(Link["a" /* default */], {
+    path: "/products/category/aromaterapia",
+    title: "Aromaterapia"
+  })))), MenuBar_jsx("img", {
     alt: "separator",
     src: "/separator.png",
     height: "30px"
@@ -303,8 +336,7 @@ function Link({
 }) {
   const router = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["useRouter"])();
 
-  const handleClick = e => {
-    e.preventDefault();
+  const handleClick = () => {
     router.push(path);
   };
 

@@ -12,6 +12,7 @@ const Category = () => {
 
     useEffect( () => {
         (async () => {
+            console.log(router.query.category)
             let gettedProducts = await getProductsByCategory(router.query.category);
             setProducts(gettedProducts);
         })()
