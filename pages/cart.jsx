@@ -5,7 +5,7 @@ import MercadoPagoButton from '../components/products/MercadoPagoButton';
 const Cart = () => {
     const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
-    const [shipment, setShipment] = useState('');
+    const [shipment, setShipment] = useState('retirement');
     
     const totalPrice = cart.reduce((acc, curr) => acc + parseInt(curr.price * curr.quantity, 10), 0)
     var productsName = "";

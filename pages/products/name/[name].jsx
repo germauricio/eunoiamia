@@ -33,11 +33,15 @@ export default () => {
         (async () => {
             if(router){
                 const gettedProduct = await getProduct(router.query.name);
+                if(gettedProduct){
+                    gettedProduct.quantity = 1;
+                    gettedProduct.shipment = "retirement"
+                    console.log(gettedProduct)    
+                }
                 setProduct(gettedProduct);
             }
         })()
       }, [router]);
-
     
     return(
         <div class="container">
@@ -92,8 +96,8 @@ export default () => {
                         <MercadoPagoButton 
                             name={product.description} 
                             shipment={product.shipment} 
-                            quantity={product.quantity || 1}
-                            price={product.price}
+                            quantity="1"
+                            price={product.price * product.quantity}
                         />
                     </article>
                 </aside> 
