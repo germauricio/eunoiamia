@@ -223,7 +223,7 @@ const MenuBar = () => {
     class: "dropdown"
   }, MenuBar_jsx("button", {
     class: "dropbtn"
-  }, "Dropdown"), MenuBar_jsx("div", {
+  }, "Productos"), MenuBar_jsx("div", {
     class: "dropdown-content"
   }, MenuBar_jsx(Link["a" /* default */], {
     path: "/products",

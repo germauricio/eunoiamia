@@ -12,11 +12,12 @@ const Category = () => {
 
     useEffect( () => {
         (async () => {
-            console.log(router.query.category)
-            let gettedProducts = await getProductsByCategory(router.query.category);
-            setProducts(gettedProducts);
+            if(router.query.category){
+                let gettedProducts = await getProductsByCategory(router.query.category);
+                setProducts(gettedProducts);
+            }
         })()
-    }, []);
+    }, [router.query.category]);
 
     return(
         <div className="container">

@@ -23,7 +23,7 @@ const MenuBar = () => {
           <li><Link title="Info" path = "/info" /></li>
           <img alt="separator" src="/separator.png" height="30px" />
           <li><div class="dropdown">
-                <button class="dropbtn">Dropdown</button>
+                <button class="dropbtn">Productos</button>
                 <div class="dropdown-content">
                   <Link path="/products" title="Todos"/>
                   <Link path="/products/category/combos" title="Combos"/>
