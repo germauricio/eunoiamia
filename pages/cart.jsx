@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartContext } from '../services/cartContext'
 import MercadoPagoButton from '../components/products/MercadoPagoButton';
 
 const Cart = () => {
     const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
+    const [shipment, setShipment] = useState('');
     
     const totalPrice = cart.reduce((acc, curr) => acc + parseInt(curr.price * curr.quantity, 10), 0)
     var productsName = "";
@@ -31,6 +32,10 @@ const Cart = () => {
         }
     }
     
+    const handleShipment = (e) => {
+        setShipment(e.target.value);
+    }
+
     return(
         !totalPrice ? (
             <div className ="container mb-4">
@@ -95,8 +100,19 @@ const Cart = () => {
                         <div class="summary-total">
                             <div class="total-title">Total</div>
                             <div class="total-value final-value" id="basket-total">${totalPrice}</div>
+                            <div class="form-check" onChange={handleShipment}>
+                                <input class="form-check-input" type="radio" name="shipment" id="shipment" value="shipment"/>
+                                <label class="form-check-label" for="shipment">
+                                    Envío (costo a acordar, mínimo $150)
+                                </label>
+                                <br></br>
+                                <input class="form-check-input" type="radio" name="shipment" id="retirement" value="retirement"/>
+                                <label class="form-check-label" for="retirement">
+                                    Retiro (sin cargo por Saenz Peña)
+                                </label>
+                            </div>
                             <div className="summary-checkout text-center">
-                                <MercadoPagoButton name={productsName} price={totalPrice} />
+                                <MercadoPagoButton name={productsName} price={totalPrice} quantity="1" shipment={shipment} />
                             </div>
                         </div>
                     </div>

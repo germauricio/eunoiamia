@@ -21,34 +21,37 @@ export default () => {
         setCart(curr => [...curr, currProduct]);
     }
 
+    const handleShipment = (e) => {
+        product.shipment = e.target.value;
+    }
+
+    const handleQuantity = (e) => {
+        product.quantity = e.target.value;
+    }
+
     useEffect(() => {
         (async () => {
             if(router){
-                const gettedProducts = await getProduct(router.query.name);
-                setProduct(gettedProducts);
+                const gettedProduct = await getProduct(router.query.name);
+                setProduct(gettedProduct);
             }
         })()
       }, [router]);
+
     
     return(
         <div class="container">
         { product ? (
             <div class="card">
             <div class="row">
-                <aside class="col-sm-5 border-right" >
+                <aside class="col-sm-6" >
                     <article class="gallery-wrap"> 
                     <div class="img-big-wrap">
                     <div><img alt={`${product.name}`} src={`/products/${product.image}`}/></div>
-                    </div> 
-                    <div class="img-small-wrap">
-                    <div class="item-gallery"> <img alt="alt1" src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
-                    <div class="item-gallery"> <img alt="alt2" src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
-                    <div class="item-gallery"> <img alt="alt3" src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
-                    <div class="item-gallery"> <img alt="alt4" src="https://s9.postimg.org/tupxkvfj3/image.jpg"/> </div>
-                    </div> 
+                    </div>  
                     </article> 
                 </aside>
-                <aside class="col-sm-7">
+                <aside class="col-sm-6">
                     <article class="card-body p-5">
                         <h3 class="title mb-3">{product.description}</h3>
                     
@@ -65,15 +68,33 @@ export default () => {
                     <hr></hr>
                                 <div class="item-property">
                                 <label className="px-4">Cantidad: </label>
-                                    <select  width="20px">
-                                        <option> 1 </option>
+                                    <select width="20px" onChange={handleQuantity}>
+                                        <option selected> 1 </option>
                                         <option> 2 </option>
                                         <option> 3 </option>
                                     </select>
+                                </div>
+                                <div class="form-check" onChange={handleShipment}>
+                                    <input class="form-check-input" type="radio" name="shipment" id="shipment" value="shipment"/>
+                                    <label class="form-check-label" for="shipment">
+                                        Envío (costo a acordar, mínimo $150)
+                                    </label>
+                                    <br></br>
+                                    <input class="form-check-input" type="radio" name="shipment" id="retirement" value="retirement"/>
+                                    <label class="form-check-label" for="retirement">
+                                        Retiro (sin cargo por Saenz Peña)
+                                    </label>
                                 </div>  
                         <hr></hr>
+                        
+                        <br></br>
                         <button onClick = {() => {addToCart(product)}} class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Añadir al carrito </button>
-                        <MercadoPagoButton name={product.description} quantity="1" price={product.price}/>
+                        <MercadoPagoButton 
+                            name={product.description} 
+                            shipment={product.shipment} 
+                            quantity={product.quantity || 1}
+                            price={product.price}
+                        />
                     </article>
                 </aside> 
             </div> 
