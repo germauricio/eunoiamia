@@ -1,12 +1,21 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../services/cartContext'
+import MercadoPagoButton from '../components/products/MercadoPagoButton';
 
 const Cart = () => {
-    const {cartProvider, quantityProvider} = useContext(CartContext); 
+    const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
     
     const totalPrice = cart.reduce((acc, curr) => acc + parseInt(curr.price * curr.quantity, 10), 0)
+    var productsName = "";
     
+    if(cart.length){
+        cart.forEach( (item) => {
+            var productName = item.description + " x" + item.quantity;
+            productsName += " " + productName;
+        })
+    }
+
     const decreaseQuantity = (product) => {
         const cartProduct = cart.find(item => item.id == product.id);
         setCart(cart.filter((item) => item.id !== product.id ));
@@ -22,8 +31,6 @@ const Cart = () => {
         }
     }
     
-    
-
     return(
         !totalPrice ? (
             <div className ="container mb-4">
@@ -88,8 +95,8 @@ const Cart = () => {
                         <div class="summary-total">
                             <div class="total-title">Total</div>
                             <div class="total-value final-value" id="basket-total">${totalPrice}</div>
-                            <div class="summary-checkout">
-                                <button class="checkout-cta">Comprar</button>
+                            <div className="summary-checkout text-center">
+                                <MercadoPagoButton name={productsName} price={totalPrice} />
                             </div>
                         </div>
                     </div>

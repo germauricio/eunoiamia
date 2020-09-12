@@ -5,6 +5,7 @@ export default function Link ({path, title, linkClass}) {
     const router = useRouter()
   
     const handleClick = () => {
+      event.preventDefault();
       router.push(path);
     }
   

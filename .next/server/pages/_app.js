@@ -337,6 +337,7 @@ function Link({
   const router = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["useRouter"])();
 
   const handleClick = () => {
+    event.preventDefault();
     router.push(path);
   };
 
