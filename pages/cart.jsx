@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../services/cartContext'
 import MercadoPagoButton from '../components/products/MercadoPagoButton';
+import {setMercadoPagoPreferences} from '../services/mercadoPago';
 
 const Cart = () => {
     const {cartProvider} = useContext(CartContext); 
@@ -15,6 +16,7 @@ const Cart = () => {
             var productName = item.description + " x" + item.quantity;
             productsName += " " + productName;
         })
+        setMercadoPagoPreferences(totalPrice, productsName, 1, shipment);
     }
 
     const decreaseQuantity = (product) => {
@@ -28,6 +30,25 @@ const Cart = () => {
                 image: product.image,
                 id: product.id
             }
+            setCart(curr => [...curr, currProduct]);
+        }
+    }
+
+    const addToCart = (product) => {
+        const cartProduct = cart.find(item => item.id == product.id);
+        if(cartProduct){
+            setCart(cart.filter((item) => item.id !== product.id ));
+            cartProduct.quantity += 1;
+            setCart(curr => [...curr, cartProduct]);
+        }
+        else{
+        const currProduct = {
+            description: product.description,
+            price: product.price,
+            quantity: 1,
+            image: product.image,
+            id: product.id
+        }
             setCart(curr => [...curr, currProduct]);
         }
     }
@@ -72,16 +93,18 @@ const Cart = () => {
                                     <p className="p-cart ml-4"><strong className="strong-cart">{item.description}</strong></p>
                                     <p className="p-cart ml-4">Código de producto: {item.id}</p>
                                 </div>
-                                </div>
-
-                                <div class="price-cart">${item.price}</div>
-                                <div class="quantity-cart">
-                                    <input type="number" onChange={e => {item.quantity = e.target.value}} min="1" value={item.quantity} class="quantity-field"></input>
-                                </div>
-                                <div class="subtotal">${totalPrice}</div>
-                                <div class="remove">
-                                    <button onClick={() => {decreaseQuantity(item)}}>Remover</button>
                             </div>
+
+                            <div class="price-cart">${item.price}</div>
+                            <div class="quantity-cart">
+                                <p class="quantity-field">{item.quantity}</p>
+                            </div>
+                            <div class="subtotal">${totalPrice}</div>
+                            <div class="remove">
+                                <button onClick={() => {decreaseQuantity(item)}}>Remover</button>
+                                <button className="m-4" onClick={() => {addToCart(item); console.log(item.quantity)}}>Agregar</button>
+                            </div>
+                            
                         </div>
                 )})}
                 </div>

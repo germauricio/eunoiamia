@@ -3,6 +3,7 @@ import {useRouter} from 'next/router'
 import {getProduct} from '../../../services/apiService';
 import {CartContext} from '../../../services/cartContext';
 import MercadoPagoButton from '../../../components/products/MercadoPagoButton'
+import { setMercadoPagoPreferences } from '../../../services/mercadoPago';
 
 export default () => {
     const router = useRouter()
@@ -23,10 +24,12 @@ export default () => {
 
     const handleShipment = (e) => {
         product.shipment = e.target.value;
+        setMercadoPagoPreferences(product.price, product.description, product.quantity, product.shipment);
     }
 
     const handleQuantity = (e) => {
         product.quantity = e.target.value;
+        setMercadoPagoPreferences(product.price, product.description, product.quantity, product.shipment);
     }
 
     useEffect(() => {
@@ -36,12 +39,11 @@ export default () => {
                 if(gettedProduct){
                     gettedProduct.quantity = 1;
                     gettedProduct.shipment = "retirement"
-                    console.log(gettedProduct)    
                 }
                 setProduct(gettedProduct);
             }
         })()
-      }, [router]);
+      }, [router.query.name]);
     
     return(
         <div class="container">
