@@ -32,6 +32,11 @@ export default () => {
         setMercadoPagoPreferences(product.price, product.description, product.quantity, product.shipment);
     }
 
+    const handleCheckout = (product) => {
+        addToCart(product);
+        router.push('/checkout')
+    }
+
     useEffect(() => {
         (async () => {
             if(router){
@@ -94,13 +99,19 @@ export default () => {
                         <hr></hr>
                         
                         <br></br>
-                        <button onClick = {() => {addToCart(product)}} class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Añadir al carrito </button>
+                        <button onClick = {() => {addToCart(product)}} class="btn btn-lg btn-outline-primary text-uppercase mb-4"> <i class="fas fa-shopping-cart"></i> Añadir al carrito </button>
+                        <hr></hr>
+                        <h5 class="title">Comprar con:</h5>
+                        <div className="buy-div">
                         <MercadoPagoButton 
                             name={product.description} 
                             shipment={product.shipment} 
                             quantity="1"
                             price={product.price * product.quantity}
                         />
+                        <button onClick = {() => handleCheckout(product)} class="btn btn-sm btn-success float" style={{fontSize: "1.2em", width: "7em",
+                            marginTop: "0.8em", height: "2.7em", marginBottom:'2em'}}>Efectivo</button>
+                        </div>
                     </article>
                 </aside> 
             </div> 

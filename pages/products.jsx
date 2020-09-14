@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {getProducts, getProductsByCategory} from '../services/apiService';
+import {getProducts} from '../services/apiService';
 import ProductList from '../components/products/ProductList';
 
 function Products(){

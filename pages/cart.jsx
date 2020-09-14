@@ -2,12 +2,13 @@ import React, { useContext, useState } from 'react';
 import { CartContext } from '../services/cartContext'
 import MercadoPagoButton from '../components/products/MercadoPagoButton';
 import {setMercadoPagoPreferences} from '../services/mercadoPago';
+import { useRouter } from 'next/router';
 
 const Cart = () => {
     const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
     const [shipment, setShipment] = useState('retirement');
-    
+    const router = useRouter();
     const totalPrice = cart.reduce((acc, curr) => acc + parseInt(curr.price * curr.quantity, 10), 0)
     var productsName = "";
     
@@ -55,6 +56,10 @@ const Cart = () => {
     
     const handleShipment = (e) => {
         setShipment(e.target.value);
+    }
+
+    const handleCheckout = () => {
+        router.push('/checkout')
     }
 
     return(
@@ -136,6 +141,8 @@ const Cart = () => {
                             </div>
                             <div className="summary-checkout text-center">
                                 <MercadoPagoButton name={productsName} price={totalPrice} quantity="1" shipment={shipment} />
+                                <button onClick={handleCheckout} class="btn btn-sm btn-success float" style={{fontSize: "1.2em", width: "7em",
+                            marginTop: "0.8em", height: "2.7em", marginBottom:'2em'}}>Efectivo</button>
                             </div>
                         </div>
                     </div>

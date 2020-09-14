@@ -19,7 +19,7 @@ export const setMercadoPagoPreferences = async (price, name, quantity, shipment)
   script.async = true;
   script.id = 'mercadoPagoScript';
   script.setAttribute('data-preference-id', initPoint);
-  script.setAttribute('data-button-label',"Comprar");
+  script.setAttribute('data-button-label',"Mercado Pago");
   var mercadoForm = document.getElementById('mercadoForm');
   var button = document.getElementById('mercadoPagoScript');
   console.log(button)

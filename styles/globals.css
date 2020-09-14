@@ -768,7 +768,10 @@ nav ul li a:hover{
 
 button.mercadopago-button {
   font-size: 1.2em;
-  margin-top: 1em;
+  padding-left:0.25em;
+  padding-right:0.5em;
+  margin-top: 1.2em;
+  float: left;
 }
 
 .ul-cart li.price:before,

@@ -20,3 +20,21 @@ export const getProduct = async (productName) => {
         headers: {"Access-Control-Allow-Headers": "*"}
     })).data;
 }
+
+export const sendMail = async (cart, totalPrice, user) => {
+    var text='Productos: \n'
+    cart.forEach( product => {
+        text += ("- " + product.description + " x" + product.quantity + "\n");
+    })
+
+    text += `\nUsuario: ${user}`
+    text += `\nPrecio total: $${totalPrice}`
+
+    return (await axios.post(url + '/api/mailer', JSON.stringify({
+        text
+      }), {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    })).data
+}
