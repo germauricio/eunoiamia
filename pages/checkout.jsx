@@ -11,7 +11,6 @@ const CashCheckout = () => {
   const [user, setUser] = useState('');
   
   const handleSubmit = async (event) => {
-    console.log('entre!')
     event.preventDefault()
     const response = await sendMail(cart, totalPrice, user);
   }

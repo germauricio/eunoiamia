@@ -107,7 +107,7 @@ const Cart = () => {
                             <div class="subtotal">${totalPrice}</div>
                             <div class="remove">
                                 <button onClick={() => {decreaseQuantity(item)}}>Remover</button>
-                                <button className="m-4" onClick={() => {addToCart(item); console.log(item.quantity)}}>Agregar</button>
+                                <button className="m-4" onClick={() => {addToCart(item);}}>Agregar</button>
                             </div>
                             
                         </div>
