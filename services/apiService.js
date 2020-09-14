@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "https://eunoiamiaapi.herokuapp.com"
+const url = "http://eunoiamiaapi.herokuapp.com"
 
 export const getProducts = async () => {
     return (await axios.get(url + '/api/products', {
