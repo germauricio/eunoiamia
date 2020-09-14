@@ -1,18 +1,22 @@
 import React, {useContext, useState} from 'react';
-import {useRouter} from 'next/router';
 import {CartContext} from '../services/cartContext';
 import {sendMail} from '../services/apiService';
+import { ToastContainer } from 'react-toastify';
 
 const CashCheckout = () => {
-  const router = useRouter();
   const {cartProvider} = useContext(CartContext); 
   const [cart, setCart] = cartProvider;
   const totalPrice = cart.reduce((acc, curr) => acc + parseInt(curr.price * curr.quantity, 10), 0);
   const [user, setUser] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState(0);
   
   const handleSubmit = async (event) => {
     event.preventDefault()
+    setIsLoading(true);
     const response = await sendMail(cart, totalPrice, user);
+    setIsLoading(false);
+    setStatus(response.status);
   }
 
   const handleChange = (e) => {
@@ -21,7 +25,13 @@ const CashCheckout = () => {
 
   return(
     <div className="container">
-    { cart.length !== 0 ? 
+    { status === 200 && (
+      <div>
+      <img src="/gif.gif" height="300px" className="loading" alt="loading"/>
+      <h4 class="title">Recibimos tu pedido, ¡en breves nos comunicaremos con vos!</h4>
+      </div>
+    )}
+    { cart.length !== 0 && status !== 200 &&
     (
     <div class="pb-5">
       <div class="card w-70 m-auto">
@@ -53,13 +63,15 @@ const CashCheckout = () => {
           <div class="form-group mt-5 px-4">
             <label for="formGroupExampleInput2">Dejanos tu usuario de Instagram o email y nosotros nos contactaremos con vos para organizar la entrega</label>
             <input onChange={handleChange} required type="text" class="form-control w-50 m-auto" id="formGroupExampleInput2" placeholder="Usuario o email"/>
-            <button onClick={handleSubmit} class="btn btn-primary btn-lg mt-3">Enviar</button>
+            { isLoading ? (
+                <img src="/Rolling-1s-200px.gif" height="200px" className="loading" alt="loading"/>
+              ):(
+                <button onClick={handleSubmit} class="btn btn-primary btn-lg mt-3">Enviar</button>
+              )}
           </div>
         </form>
       </div>
       </div>
-    ) : (
-      <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
     )}
     </div>
   );

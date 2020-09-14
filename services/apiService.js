@@ -36,5 +36,5 @@ export const sendMail = async (cart, totalPrice, user) => {
         headers: {
           'Content-Type': 'application/json'
         }
-    })).data
+    }))
 }
