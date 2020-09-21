@@ -29,7 +29,7 @@ const Product = ({product}) => {
                 path={`/products/name/${product.name}`} 
                 title={
                     <div class="product-tumb">
-                    <img src={`/products/${product.image}`} alt={product.name} />
+                    <img src={`${product.image}`} alt={product.name} />
                 </div>} 
                 linkClass= "product-a"
             />
