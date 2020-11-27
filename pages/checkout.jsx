@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {CartContext} from '../services/cartContext';
 import {sendMail} from '../services/apiService';
-import { ToastContainer } from 'react-toastify';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const CashCheckout = () => {
   const {cartProvider} = useContext(CartContext); 
@@ -44,7 +44,10 @@ const CashCheckout = () => {
           <div className="float-left px-1">
            <div class="product-card">
             <div class="product-tumb">
-              <img src={`/products/${product.image}`} alt={product.image} />
+              <LazyLoadImage
+              src={product.image}
+              alt={product.image} 
+              />
             </div>
             <div className="product-details">
               <h4 style={{fontSize: 15}}>{product.description} x{product.quantity}</h4>
