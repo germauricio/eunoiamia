@@ -44,6 +44,7 @@ const Product = ({product}) => {
                             src="/shop.ico" 
                             height="30px" 
                             alt="carrito"
+                            effect="blur"
                             />
                         </button>
                     </div>

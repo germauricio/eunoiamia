@@ -63,6 +63,7 @@ export default () => {
                             <LazyLoadImage 
                             alt={product.name} 
                             src={product.image}
+                            effect="blur"
                             />
                         </div>
                     </div>  

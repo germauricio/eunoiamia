@@ -97,6 +97,7 @@ const Cart = () => {
                                     height ="160px" 
                                     alt={item.image} 
                                     class="product-frame"
+                                    effect="blur"
                                     />
                                 </div>
                                 <div class="product-details-cart">
