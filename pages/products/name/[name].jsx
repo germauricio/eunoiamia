@@ -84,13 +84,17 @@ export default () => {
                     </dl>
                     
                     <hr></hr>
+                    { product.stock < 1 ? (
+                            <em>Sin Stock</em>
+                        ) : (
+                            <div>
                                 <div class="item-property">
-                                <label className="px-4">Cantidad: </label>
-                                    <select width="20px" onChange={handleQuantity}>
-                                        <option selected> 1 </option>
-                                        <option> 2 </option>
-                                        <option> 3 </option>
-                                    </select>
+                                    <label className="px-4">Cantidad: </label>
+                                        <select width="20px" onChange={handleQuantity}>
+                                            <option selected> 1 </option>
+                                            <option> 2 </option>
+                                            <option> 3 </option>
+                                        </select>
                                 </div>
                                 <div class="form-check" onChange={handleShipment}>
                                     <input class="form-check-input" type="radio" name="shipment" id="shipment" value="shipment"/>
@@ -103,22 +107,27 @@ export default () => {
                                         Retiro (sin cargo por Saenz Peña)
                                     </label>
                                 </div>  
-                        <hr></hr>
-                        
-                        <br></br>
-                        <button onClick = {() => {addToCart(product)}} class="btn btn-lg btn-outline-primary text-uppercase mb-4"> <i class="fas fa-shopping-cart"></i> Añadir al carrito </button>
-                        <hr></hr>
-                        <h5 class="title">Comprar con:</h5>
-                        <div className="buy-div">
-                        <MercadoPagoButton 
-                            name={product.description} 
-                            shipment={product.shipment} 
-                            quantity="1"
-                            price={product.price * product.quantity}
-                        />
-                        <button onClick = {() => handleCheckout(product)} class="btn btn-sm btn-success float" style={{fontSize: "1.2em", width: "7em",
-                            marginTop: "0.8em", height: "2.7em", marginBottom:'2em'}}>Efectivo</button>
-                        </div>
+                                <hr></hr>
+                                
+                                <br></br>
+                                <button onClick = {() => {addToCart(product)}} class="btn btn-lg btn-outline-primary text-uppercase mb-4"> <i class="fas fa-shopping-cart"></i> Añadir al carrito </button>
+                                <hr></hr>
+                                <h5 class="title">Comprar con:</h5>
+                                <div className="buy-div">
+                                    <MercadoPagoButton 
+                                        name={product.description} 
+                                        shipment={product.shipment} 
+                                        quantity="1"
+                                        price={product.price * product.quantity}
+                                    />
+                                    <button onClick = {() => handleCheckout(product)} class="btn btn-sm btn-success float" style={{fontSize: "1.2em", width: "7em",
+                                        marginTop: "0.8em", height: "2.7em", marginBottom:'2em'}}>Efectivo</button>
+                                </div>
+                            </div>
+                        )
+                    
+                    }
+                    
                     </article>
                 </aside> 
             </div> 

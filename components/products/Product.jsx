@@ -30,7 +30,10 @@ const Product = ({product}) => {
                 path={`/products/name/${product.name}`} 
                 title={
                     <div class="product-tumb">
-                    <img src={`${product.image}`} alt={product.name} />
+                    <LazyLoadImage
+                    src={product.image} 
+                    alt={product.name} 
+                    />
                 </div>} 
                 linkClass= "product-a"
             />
@@ -39,14 +42,21 @@ const Product = ({product}) => {
                 <div className="product-bottom-details">
                     <div className="product-price">${product.price}</div>
                     <div className="product-links">
-                        <button className="addcart" onClick={ (product) => addToCart(product)}>
-                            <LazyLoadImage 
-                            src="/shop.ico" 
-                            height="30px" 
-                            alt="carrito"
-                            effect="blur"
-                            />
-                        </button>
+                        {product.stock < 1 ? 
+                            (
+                                <em>Sin stock</em>
+                            ) : 
+                            (
+                                <button className="addcart" onClick={ (product) => addToCart(product)}>
+                                <LazyLoadImage 
+                                src="/shop.ico" 
+                                height="30px" 
+                                alt="carrito"
+                                effect="blur"
+                                />
+                            </button>
+                            )
+                        }
                     </div>
                 </div>
             </div>
