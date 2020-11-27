@@ -3,6 +3,7 @@ import { CartContext } from '../services/cartContext'
 import MercadoPagoButton from '../components/products/MercadoPagoButton';
 import {setMercadoPagoPreferences} from '../services/mercadoPago';
 import { useRouter } from 'next/router';
+import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Cart = () => {
     const {cartProvider} = useContext(CartContext); 
@@ -91,7 +92,12 @@ const Cart = () => {
                         <div class="basket-product">
                             <div class="item-cart">
                                 <div class="product-image-cart">
-                                    <img src={`/products/${item.image}`} height ="160px" alt={item.image} class="product-frame"/>
+                                    <LazyLoadImage 
+                                    src={item.image} 
+                                    height ="160px" 
+                                    alt={item.image} 
+                                    class="product-frame"
+                                    />
                                 </div>
                                 <div class="product-details-cart">
                                     <h1 className="h1-cart ml-4"><strong className="strong-cart"><span class="item-quantity">{item.quantity}</span></strong></h1>

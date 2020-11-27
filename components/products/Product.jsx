@@ -1,6 +1,7 @@
 import React, { useContext, useState, useCallback } from 'react';
 import Link from '../Link';
 import { CartContext, addToCart, decreaseQuantity, increaseQuantity } from '../../services/cartContext';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Product = ({product}) => {
     const {cartProvider} = useContext(CartContext); 
@@ -39,7 +40,11 @@ const Product = ({product}) => {
                     <div className="product-price">${product.price}</div>
                     <div className="product-links">
                         <button className="addcart" onClick={ (product) => addToCart(product)}>
-                            <img src="/shop.ico" height="30px" alt="carrito"></img>
+                            <LazyLoadImage 
+                            src="/shop.ico" 
+                            height="30px" 
+                            alt="carrito"
+                            />
                         </button>
                     </div>
                 </div>

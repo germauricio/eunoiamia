@@ -4,6 +4,7 @@ import {getProduct} from '../../../services/apiService';
 import {CartContext} from '../../../services/cartContext';
 import MercadoPagoButton from '../../../components/products/MercadoPagoButton'
 import { setMercadoPagoPreferences } from '../../../services/mercadoPago';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default () => {
     const router = useRouter()
@@ -58,7 +59,12 @@ export default () => {
                 <aside class="col-sm-6" >
                     <article class="gallery-wrap"> 
                     <div class="img-big-wrap">
-                    <div><img alt={`${product.name}`} src={`/products/${product.image}`}/></div>
+                        <div>
+                            <LazyLoadImage 
+                            alt={product.name} 
+                            src={product.image}
+                            />
+                        </div>
                     </div>  
                     </article> 
                 </aside>
