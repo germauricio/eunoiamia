@@ -10,12 +10,13 @@ const CashCheckout = () => {
   const [user, setUser] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState(0);
-  
+  const shipment = cart[0] && cart[0].shipment == 'retirement' ? 'Retiro' : 'Envío';
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     setIsLoading(true);
-    const response = await sendMail(cart, totalPrice, user);
-    const sell = await makeSell(cart, totalPrice, user);
+    const response = await sendMail(cart, totalPrice, user, shipment);
+    await makeSell(cart, totalPrice, user, shipment);
     setIsLoading(false);
     setStatus(response.status);
   }
@@ -64,6 +65,7 @@ const CashCheckout = () => {
         })}
         </div>
         <h5 className="title">Total a pagar: ${totalPrice}</h5>
+        <h6 className="title">Metodo de envio: {shipment}</h6>
         <form>
           <div class="form-group mt-5 px-4">
             <label for="formGroupExampleInput2">Dejanos tu usuario de Instagram o email y nosotros nos contactaremos con vos para organizar la entrega</label>

@@ -8,7 +8,8 @@ import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-componen
 const Cart = () => {
     const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
-    const [shipment, setShipment] = useState('retirement');
+    const [shipment, setShipment] = useState('');
+    const [missingShipment, showShipmentMissing] = useState(false);
     const router = useRouter();
     const totalPrice = cart.reduce((acc, curr) => acc + parseInt(curr.price * curr.quantity, 10), 0)
     var productsName = "";
@@ -56,11 +57,18 @@ const Cart = () => {
     }
     
     const handleShipment = (e) => {
+        showShipmentMissing(false);
         setShipment(e.target.value);
     }
 
     const handleCheckout = () => {
-        router.push('/checkout')
+        if(!shipment){
+            showShipmentMissing(true);
+        }
+        else {
+            cart[0].shipment = shipment;
+            router.push('/checkout')
+        }
     }
 
     return(
@@ -146,6 +154,9 @@ const Cart = () => {
                                     Retiro (sin cargo por Saenz Peña)
                                 </label>
                             </div>
+                            { missingShipment && (
+                                <p class="text-danger">Seleccionar un metodo de envio</p>
+                            )}
                             <div className="summary-checkout text-center">
                                 <MercadoPagoButton name={productsName} price={totalPrice} quantity="1" shipment={shipment} />
                                 <button onClick={handleCheckout} class="btn btn-sm btn-success float" style={{fontSize: "1.2em", width: "7em",

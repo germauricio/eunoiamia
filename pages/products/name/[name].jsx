@@ -11,6 +11,8 @@ export default () => {
     const [product, setProduct] = useState(false);
     const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
+    const [shipment, setShipment] = useState('');
+    const [missingShipment, showShipmentMissing] = useState(false);
 
     const addToCart = () => {
         const currProduct = {
@@ -18,24 +20,37 @@ export default () => {
             price: product.price,
             quantity: 1,
             image: product.image,
-            id: product.id
+            id: product.id,
+            shipment: shipment
         }
         setCart(curr => [...curr, currProduct]);
     }
 
     const handleShipment = (e) => {
-        product.shipment = e.target.value;
-        setMercadoPagoPreferences(product.price, product.description, product.quantity, product.shipment);
+        setShipment(e.target.value);
+        setMercadoPagoPreferences(product.price, product.description, product.quantity, shipment);
     }
 
     const handleQuantity = (e) => {
         product.quantity = e.target.value;
-        setMercadoPagoPreferences(product.price, product.description, product.quantity, product.shipment);
+        setMercadoPagoPreferences(product.price, product.description, product.quantity, shipment);
     }
 
     const handleCheckout = (product) => {
         addToCart(product);
-        router.push('/checkout')
+
+        if(!shipment){
+            showShipmentMissing(true);
+        }
+        else{
+            router.push('/checkout');
+        }
+    }
+
+    const handleMercadoPagoClick = () => {
+        if(!shipment){
+            showShipmentMissing(true);
+        }
     }
 
     useEffect(() => {
@@ -44,7 +59,6 @@ export default () => {
                 const gettedProduct = await getProduct(router.query.name);
                 if(gettedProduct){
                     gettedProduct.quantity = 1;
-                    gettedProduct.shipment = "retirement"
                 }
                 setProduct(gettedProduct);
             }
@@ -106,7 +120,10 @@ export default () => {
                                     <label class="form-check-label" for="retirement">
                                         Retiro (sin cargo por Saenz Peña)
                                     </label>
-                                </div>  
+                                </div>
+                                { missingShipment && (
+                                    <p class="text-danger">Seleccionar un metodo de envio</p>
+                                )}
                                 <hr></hr>
                                 
                                 <br></br>
@@ -119,6 +136,7 @@ export default () => {
                                         shipment={product.shipment} 
                                         quantity="1"
                                         price={product.price * product.quantity}
+                                        onClick={handleMercadoPagoClick}
                                     />
                                     <button onClick = {() => handleCheckout(product)} class="btn btn-sm btn-success float" style={{fontSize: "1.2em", width: "7em",
                                         marginTop: "0.8em", height: "2.7em", marginBottom:'2em'}}>Efectivo</button>

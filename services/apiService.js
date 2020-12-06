@@ -21,8 +21,7 @@ export const getProduct = async (productName) => {
     })).data;
 }
 
-export const makeSell = async (cart, totalPrice, user) => {
-    
+export const makeSell = async (cart, totalPrice, user, shipment) => {
     var sellProductsName = '';
 
     cart.map( product => {
@@ -32,7 +31,8 @@ export const makeSell = async (cart, totalPrice, user) => {
     var sell = {
         product_name: sellProductsName,
         total: totalPrice,
-        contact: user
+        contact: user,
+        shipment: shipment
     }
     
     return (await axios.post(url + '/api/admin/sell', JSON.stringify({
@@ -44,7 +44,7 @@ export const makeSell = async (cart, totalPrice, user) => {
     }))
 }
 
-export const sendMail = async (cart, totalPrice, user) => {
+export const sendMail = async (cart, totalPrice, user, shipment) => {
     var text='Productos: \n'
     cart.forEach( product => {
         text += ("- " + product.description + " x" + product.quantity + "\n");
@@ -52,6 +52,7 @@ export const sendMail = async (cart, totalPrice, user) => {
 
     text += `\nUsuario: ${user}`
     text += `\nPrecio total: $${totalPrice}`
+    text += `\nMétodo de envío: $${shipment}`
 
     return (await axios.post(url + '/api/mailer', JSON.stringify({
         text
