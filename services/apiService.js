@@ -21,6 +21,29 @@ export const getProduct = async (productName) => {
     })).data;
 }
 
+export const makeSell = async (cart, totalPrice, user) => {
+    
+    var sellProductsName = '';
+
+    cart.map( product => {
+        sellProductsName += `${product.description} x${product.quantity} `
+    });
+
+    var sell = {
+        product_name: sellProductsName,
+        total: totalPrice,
+        contact: user
+    }
+    
+    return (await axios.post(url + '/api/admin/sell', JSON.stringify({
+        sell
+      }), {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    }))
+}
+
 export const sendMail = async (cart, totalPrice, user) => {
     var text='Productos: \n'
     cart.forEach( product => {

@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {CartContext} from '../services/cartContext';
-import {sendMail} from '../services/apiService';
+import {sendMail, makeSell} from '../services/apiService';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const CashCheckout = () => {
@@ -15,6 +15,7 @@ const CashCheckout = () => {
     event.preventDefault()
     setIsLoading(true);
     const response = await sendMail(cart, totalPrice, user);
+    const sell = await makeSell(cart, totalPrice, user);
     setIsLoading(false);
     setStatus(response.status);
   }
@@ -70,7 +71,7 @@ const CashCheckout = () => {
             { isLoading ? (
                 <img src="/Rolling-1s-200px.gif" height="200px" className="loading" alt="loading"/>
               ):(
-                <button onClick={handleSubmit} class="btn btn-primary btn-lg mt-3">Enviar</button>
+                <button onClick={handleSubmit} class="btn btn-primary btn-lg mt-3">Comprar</button>
               )}
           </div>
         </form>
