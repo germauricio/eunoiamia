@@ -24,7 +24,7 @@ function Products(){
 
     return(
         <div className="container">
-            <div className="col-sm-4 center">
+            <div>
                 <form 
                 class="input-group"
                 onSubmit={handleFilter}
@@ -38,9 +38,9 @@ function Products(){
                 </form>
             </div>
             <div className="container">
+
             { products ? (
-                <div>
-                    
+                <div className="container">
                     <ProductList products={products} />
                 </div>
             ) : (

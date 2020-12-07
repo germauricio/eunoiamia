@@ -18,7 +18,9 @@ const Product = ({product}) => {
             price: product.price,
             quantity: 1,
             image: product.image,
-            id: product.id
+            id: product.id,
+            stock: product.stock,
+            name: product.name
         }
             setCart(curr => [...curr, currProduct]);
         }

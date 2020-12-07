@@ -15,7 +15,7 @@ export const getProductsByCategory = async (category) => {
 }
 
 export const editProduct = async (params) => {
-
+    console.log(params)
     return (await axios.put(url + '/api/product', params, 
     {
         headers: {"Access-Control-Allow-Headers": "*"}
@@ -32,10 +32,10 @@ export const getProduct = async (productName) => {
 export const makeSell = async (cart, totalPrice, user, shipment) => {
     var sellProductsName = '';
 
-    cart.map( product => {
-        product.stock =- 1
-        await editProduct(product);
+    cart.map( async product => {
+        product.stock = product.stock - product.quantity;
         sellProductsName += `${product.description} x${product.quantity} `
+        await editProduct(product);
     });
 
     var sell = {

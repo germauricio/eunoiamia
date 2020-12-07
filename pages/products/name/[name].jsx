@@ -9,6 +9,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 export default () => {
     const router = useRouter()
     const [product, setProduct] = useState(false);
+    const [quantity, setQuantity] = useState(1);
     const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
     const [shipment, setShipment] = useState('');
@@ -18,10 +19,12 @@ export default () => {
         const currProduct = {
             description: product.description,
             price: product.price,
-            quantity: 1,
+            quantity: quantity,
             image: product.image,
             id: product.id,
-            shipment: shipment
+            shipment: shipment,
+            stock: product.stock,
+            name: product.name
         }
         setCart(curr => [...curr, currProduct]);
     }
@@ -32,17 +35,17 @@ export default () => {
     }
 
     const handleQuantity = (e) => {
-        product.quantity = e.target.value;
+        setQuantity(e.target.value);
         setMercadoPagoPreferences(product.price, product.description, product.quantity, shipment);
     }
 
     const handleCheckout = (product) => {
-        addToCart(product);
-
+        
         if(!shipment){
             showShipmentMissing(true);
         }
         else{
+            addToCart(product);
             router.push('/checkout');
         }
     }
@@ -104,11 +107,10 @@ export default () => {
                             <div>
                                 <div class="item-property">
                                     <label className="px-4">Cantidad: </label>
-                                        <select width="20px" onChange={handleQuantity}>
-                                            <option selected> 1 </option>
-                                            <option> 2 </option>
-                                            <option> 3 </option>
-                                        </select>
+                                    <input type="number" onChange={handleQuantity}/>
+                                    { product.stock < quantity && (
+                                        <p class="text-danger">Solo tenemos {product.stock} disponibles!</p>
+                                    )}
                                 </div>
                                 <div class="form-check" onChange={handleShipment}>
                                     <input class="form-check-input" type="radio" name="shipment" id="shipment" value="shipment"/>
