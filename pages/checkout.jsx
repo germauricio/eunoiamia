@@ -19,6 +19,7 @@ const CashCheckout = () => {
     await makeSell(cart, totalPrice, user, shipment);
     setIsLoading(false);
     setStatus(response.status);
+    setCart([]);
   }
 
   const handleChange = (e) => {
@@ -40,7 +41,7 @@ const CashCheckout = () => {
         <div class="card-header">
           Estas comprando...
         </div>
-        <div class="card-body m-auto">
+        <div class="card-body container">
         {cart.map( product => {
           return(
           <div className="float-left px-1">

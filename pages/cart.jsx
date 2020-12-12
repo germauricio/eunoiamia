@@ -10,6 +10,7 @@ const Cart = () => {
     const [cart, setCart] = cartProvider;
     const [shipment, setShipment] = useState('');
     const [missingShipment, showShipmentMissing] = useState(false);
+    const [outOfStock, setOutOfStock] = useState(false);
     const router = useRouter();
     const totalPrice = cart.reduce((acc, curr) => acc + parseInt(curr.price * curr.quantity, 10), 0)
     var productsName = "";
@@ -39,23 +40,28 @@ const Cart = () => {
 
     const addToCart = (product) => {
         const cartProduct = cart.find(item => item.id == product.id);
-        if(cartProduct){
-            setCart(cart.filter((item) => item.id !== product.id ));
-            cartProduct.quantity += 1;
-            setCart(curr => [...curr, cartProduct]);
+        if(product.quantity +1 > product.stock){
+            setOutOfStock(true);
         }
-        else{
-        const currProduct = {
-            description: product.description,
-            price: product.price,
-            quantity: 1,
-            image: product.image,
-            id: product.id,
-            stock: product.stock,
-            name: product.name,
-            cost: product.cost
-        }
-            setCart(curr => [...curr, currProduct]);
+        else {
+            if(cartProduct){
+                setCart(cart.filter((item) => item.id !== product.id ));
+                cartProduct.quantity += 1;
+                setCart(curr => [...curr, cartProduct]);
+            }
+            else{
+                const currProduct = {
+                    description: product.description,
+                    price: product.price,
+                    quantity: 1,
+                    image: product.image,
+                    id: product.id,
+                    stock: product.stock,
+                    name: product.name,
+                    cost: product.cost
+                }
+                setCart(curr => [...curr, currProduct]);
+            }
         }
     }
     
@@ -126,8 +132,12 @@ const Cart = () => {
                             <div class="remove">
                                 <button onClick={() => {decreaseQuantity(item)}}>Remover</button>
                                 <button className="m-4" onClick={() => {addToCart(item);}}>Agregar</button>
+                            {outOfStock && (
+                                <div className="w-100 pr-4">
+                                    <p class="text-danger">Solo tenemos {item.stock} disponibles!</p>
+                                </div>
+                            )}
                             </div>
-                            
                         </div>
                 )})}
                 </div>
@@ -160,10 +170,15 @@ const Cart = () => {
                             { missingShipment && (
                                 <p class="text-danger">Seleccionar un metodo de envio</p>
                             )}
+                            <br></br>
+                            <div class="total-title">PAGAR CON</div>
                             <div className="summary-checkout text-center">
-                                <MercadoPagoButton name={productsName} price={totalPrice} quantity="1" shipment={shipment} />
-                                <button onClick={handleCheckout} class="btn btn-sm btn-success float" style={{fontSize: "1.2em", width: "7em",
-                            marginTop: "0.8em", height: "2.7em", marginBottom:'2em'}}>Efectivo</button>
+                                <div className="container">
+
+                                    <MercadoPagoButton name={productsName} price={totalPrice} quantity="1" shipment={shipment} />
+                                    <button onClick={handleCheckout} class="btn btn-sm btn-success position-static" style={{fontSize: "1.2em", width: "7em",
+                                    marginTop: "0.8em", height: "2.7em"}}>Efectivo</button>
+                                </div>
                             </div>
                         </div>
                     </div>

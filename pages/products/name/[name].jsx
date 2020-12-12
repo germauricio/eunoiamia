@@ -14,30 +14,49 @@ export default () => {
     const [cart, setCart] = cartProvider;
     const [shipment, setShipment] = useState('');
     const [missingShipment, showShipmentMissing] = useState(false);
+    const [outOfStock, setOutOfStock] = useState(false);
 
     const addToCart = () => {
-        const currProduct = {
-            description: product.description,
-            price: product.price,
-            quantity: quantity,
-            image: product.image,
-            id: product.id,
-            shipment: shipment,
-            stock: product.stock,
-            name: product.name,
-            cost: product.cost
+        const cartProduct = cart.find(item => item.id == product.id);
+        if(cartProduct && cartProduct.quantity + quantity > cartProduct.stock) {
+            setOutOfStock(true);
         }
-        setCart(curr => [...curr, currProduct]);
-    }
+        else {
 
+            if(cartProduct){
+                cartProduct.quantity += 1;
+                setCart(cart.filter((item) => item.id !== product.id ));
+                setCart(curr => [...curr, cartProduct]);
+            }
+            else {
+                const currProduct = {
+                    description: product.description,
+                    price: product.price,
+                    quantity: quantity,
+                    image: product.image,
+                    id: product.id,
+                    stock: product.stock,
+                    name: product.name,
+                    cost: product.cost
+                }
+                setCart(curr => [...curr, currProduct]);
+            }
+        }
+    }
+    
     const handleShipment = (e) => {
         setShipment(e.target.value);
         setMercadoPagoPreferences(product.price, product.description, product.quantity, shipment);
     }
 
     const handleQuantity = (e) => {
-        setQuantity(e.target.value);
-        setMercadoPagoPreferences(product.price, product.description, product.quantity, shipment);
+        if(e.target.value > product.stock) {
+            setOutOfStock(true);
+        }
+        else {
+            setQuantity(e.target.value);
+            setMercadoPagoPreferences(product.price, product.description, product.quantity, shipment);
+        }
     }
 
     const handleCheckout = (product) => {
@@ -108,7 +127,7 @@ export default () => {
                             <div>
                                 <div class="item-property">
                                     <label className="px-4">Cantidad: </label>
-                                    <input type="number" onChange={handleQuantity}/>
+                                    <input className="col-xs-1" type="number" value={quantity} onChange={handleQuantity}/>
                                     { product.stock < quantity && (
                                         <p class="text-danger">Solo tenemos {product.stock} disponibles!</p>
                                     )}
@@ -130,10 +149,18 @@ export default () => {
                                 <hr></hr>
                                 
                                 <br></br>
-                                <button onClick = {() => {addToCart(product)}} class="btn btn-lg btn-outline-primary text-uppercase mb-4"> <i class="fas fa-shopping-cart"></i> Añadir al carrito </button>
+                                <button onClick = {() => {addToCart(product)}} class="btn btn-lg btn-outline-primary text-uppercase mb-4"> 
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Añadir al carrito 
+                                </button>
+                                {outOfStock && (
+                                    <p class="text-danger">Solo tenemos {product.stock} disponibles!</p>
+                                )}
+
                                 <hr></hr>
                                 <h5 class="title">Comprar con:</h5>
-                                <div className="buy-div">
+                                <div className="container">
+                                    <div>
                                     <MercadoPagoButton 
                                         name={product.description} 
                                         shipment={product.shipment} 
@@ -141,7 +168,9 @@ export default () => {
                                         price={product.price * product.quantity}
                                         onClick={handleMercadoPagoClick}
                                     />
-                                    <button onClick = {() => handleCheckout(product)} class="btn btn-sm btn-success float" style={{fontSize: "1.2em", width: "7em",
+                                    </div>
+                                    
+                                    <button onClick = {() => handleCheckout(product)} class="btn btn-sm btn-success position-static" style={{fontSize: "1.2em", width: "7em",
                                         marginTop: "0.8em", height: "2.7em", marginBottom:'2em'}}>Efectivo</button>
                                 </div>
                             </div>

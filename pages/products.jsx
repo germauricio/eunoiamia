@@ -28,6 +28,7 @@ function Products(){
                 <form 
                 class="input-group"
                 onSubmit={handleFilter}
+                style={{zIndex: 0}}
                 >
                     <input 
                     type="text" 

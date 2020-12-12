@@ -1,29 +1,41 @@
 import React, { useContext, useState, useCallback } from 'react';
 import Link from '../Link';
-import { CartContext, addToCart, decreaseQuantity, increaseQuantity } from '../../services/cartContext';
+import { CartContext } from '../../services/cartContext';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Product = ({product}) => {
     const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
+    const [outOfStock, setOutOfStock] = useState(false);
+
+    var inCart = cart.find(item => item.id == product.id);
+    var quantity = inCart ? inCart.quantity : 0;
 
     const addToCart = () => {
         const cartProduct = cart.find(item => item.id == product.id);
-        if(cartProduct){
-            cartProduct.quantity += 1;
+        if(cartProduct && quantity + 1 > cartProduct.stock) {
+            setOutOfStock(true);
         }
-        else{
-        const currProduct = {
-            description: product.description,
-            price: product.price,
-            quantity: 1,
-            image: product.image,
-            id: product.id,
-            stock: product.stock,
-            name: product.name,
-            cost: product.cost
-        }
-            setCart(curr => [...curr, currProduct]);
+        else {
+
+            if(cartProduct){
+                cartProduct.quantity += 1;
+                setCart(cart.filter((item) => item.id !== product.id ));
+                setCart(curr => [...curr, cartProduct]);
+            }
+            else{
+            const currProduct = {
+                description: product.description,
+                price: product.price,
+                quantity: 1,
+                image: product.image,
+                id: product.id,
+                stock: product.stock,
+                name: product.name,
+                cost: product.cost
+            }
+                setCart(curr => [...curr, currProduct]);
+            }
         }
     }
     
@@ -51,6 +63,9 @@ const Product = ({product}) => {
                             ) : 
                             (
                                 <button className="addcart" onClick={ (product) => addToCart(product)}>
+                                { quantity > 0 && (
+                                    quantity
+                                )}
                                 <LazyLoadImage 
                                 src="/shop.ico" 
                                 height="30px" 
@@ -61,6 +76,9 @@ const Product = ({product}) => {
                             )
                         }
                     </div>
+                    {outOfStock && (
+                        <p class="text-danger">Solo tenemos {product.stock} disponibles!</p>
+                    )}
                 </div>
             </div>
         </div>
