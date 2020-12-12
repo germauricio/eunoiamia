@@ -3,14 +3,13 @@ import { CartContext } from '../services/cartContext'
 import MercadoPagoButton from '../components/products/MercadoPagoButton';
 import {setMercadoPagoPreferences} from '../services/mercadoPago';
 import { useRouter } from 'next/router';
-import { LazyLoadComponent, LazyLoadImage } from 'react-lazy-load-image-component';
+import ItemCart from '../components/ItemCart';
 
 const Cart = () => {
     const {cartProvider} = useContext(CartContext); 
     const [cart, setCart] = cartProvider;
     const [shipment, setShipment] = useState('');
     const [missingShipment, showShipmentMissing] = useState(false);
-    const [outOfStock, setOutOfStock] = useState(false);
     const router = useRouter();
     const totalPrice = cart.reduce((acc, curr) => acc + parseInt(curr.price * curr.quantity, 10), 0)
     var productsName = "";
@@ -21,52 +20,6 @@ const Cart = () => {
             productsName += " " + productName;
         })
         setMercadoPagoPreferences(totalPrice, productsName, 1, shipment);
-    }
-
-    const decreaseQuantity = (product) => {
-        const cartProduct = cart.find(item => item.id == product.id);
-        setCart(cart.filter((item) => item.id !== product.id ));
-        if(product.quantity > 1){
-            const currProduct = {
-                description: product.description,
-                price: product.price,
-                quantity: cartProduct.quantity - 1,
-                image: product.image,
-                id: product.id,
-                stock: product.stock,
-                name: product.name,
-                cost: product.cost
-            }
-            setCart(curr => [...curr, currProduct]);
-        }
-        setOutOfStock(false);
-    }
-
-    const addToCart = (product) => {
-        const cartProduct = cart.find(item => item.id == product.id);
-        if(cartProduct.quantity +1 > cartProduct.stock){
-            setOutOfStock(true);
-        }
-        else {
-            if(cartProduct){
-                setCart(cart.filter((item) => item.id !== product.id ));
-                cartProduct.quantity += 1;
-                setCart(curr => [...curr, cartProduct]);
-            }
-            else{
-                const currProduct = {
-                    description: product.description,
-                    price: product.price,
-                    quantity: 1,
-                    image: product.image,
-                    id: product.id,
-                    stock: product.stock,
-                    name: product.name,
-                    cost: product.cost
-                }
-                setCart(curr => [...curr, currProduct]);
-            }
-        }
     }
     
     const handleShipment = (e) => {
@@ -111,37 +64,7 @@ const Cart = () => {
                 cart.map(item => {
                     return(
                         <div class="basket-product">
-                            <div class="item-cart">
-                                <div class="product-image-cart">
-                                    <LazyLoadImage 
-                                    src={`${item.image}-1.jpg`} 
-                                    height ="160px" 
-                                    alt={item.image} 
-                                    class="product-frame"
-                                    effect="blur"
-                                    />
-                                </div>
-                                <div class="product-details-cart">
-                                    <h1 className="h1-cart ml-4"><strong className="strong-cart"><span class="item-quantity">{item.quantity}</span></strong></h1>
-                                    <p className="p-cart ml-4"><strong className="strong-cart">{item.description}</strong></p>
-                                    <p className="p-cart ml-4">Código de producto: {item.id}</p>
-                                </div>
-                            </div>
-
-                            <div class="price-cart">${item.price}</div>
-                            <div class="quantity-cart">
-                                <p class="quantity-field">{item.quantity}</p>
-                            </div>
-                            <div class="subtotal">${totalPrice}</div>
-                            <div class="remove">
-                                <button onClick={() => {decreaseQuantity(item)}}>Remover</button>
-                                <button className="m-4" onClick={() => {addToCart(item);}}>Agregar</button>
-                                {outOfStock && (
-                                    <div className="w-100 pr-4">
-                                        <p class="text-danger">Solo tenemos {item.stock} disponibles!</p>
-                                    </div>
-                                )}
-                            </div>
+                            <ItemCart totalPrice={totalPrice} item={item}/>
                         </div>
                 )})}
                 </div>
