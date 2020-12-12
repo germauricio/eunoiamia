@@ -119,8 +119,8 @@ export default () => {
                         </span> 
                     </p> 
                     <dl class="item-property">
-                    <dt>Descripción</dt>
-                    <dd><p>{product.detail}</p></dd>
+                    <dt >Descripción</dt>
+                    <dd className="new-line">{product.detail}</dd>
                     </dl>
                     
                     <hr></hr>

@@ -611,6 +611,10 @@ nav ul li a:hover{
   color:white !important;
 }
 
+.new-line {
+  white-space: pre-line;
+}
+
 .cart{
   text-align:right;
   padding-bottom: 13px;
