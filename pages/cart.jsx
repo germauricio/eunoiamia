@@ -114,7 +114,7 @@ const Cart = () => {
                             <div class="item-cart">
                                 <div class="product-image-cart">
                                     <LazyLoadImage 
-                                    src={item.image} 
+                                    src={`${product.image}-1.jpg`} 
                                     height ="160px" 
                                     alt={item.image} 
                                     class="product-frame"

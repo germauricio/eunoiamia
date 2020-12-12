@@ -7,6 +7,6 @@ export default function MercadoPagoButton ({ price, name, quantity, shipment }) 
     setMercadoPagoPreferences(price, name, quantity, shipment);
   }, []);
   
-  return <form className="p-2" action="/procesar-pago" method="POST" id="mercadoForm"/>;
+  return <form action="/procesar-pago" method="POST" id="mercadoForm"/>;
 }
 

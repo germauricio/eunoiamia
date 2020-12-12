@@ -38,7 +38,7 @@ const Product = ({product}) => {
             }
         }
     }
-    
+    console.log(`${product.image}-1.jpg`)
     return(
         <div class="product-card">
             <Link 
@@ -46,7 +46,7 @@ const Product = ({product}) => {
                 title={
                     <div class="product-tumb">
                     <LazyLoadImage
-                    src={product.image} 
+                    src={`${product.image}-1.jpg`} 
                     alt={product.name} 
                     />
                 </div>} 

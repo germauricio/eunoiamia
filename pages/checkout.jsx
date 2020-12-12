@@ -48,7 +48,7 @@ const CashCheckout = () => {
            <div class="product-card">
             <div class="product-tumb">
               <LazyLoadImage
-              src={product.image}
+              src={`${product.image}-1.jpg`} 
               alt={product.image} 
               effect="blur"
               />

@@ -4,7 +4,7 @@ import {getProduct} from '../../../services/apiService';
 import {CartContext} from '../../../services/cartContext';
 import MercadoPagoButton from '../../../components/products/MercadoPagoButton'
 import { setMercadoPagoPreferences } from '../../../services/mercadoPago';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Carousel from 'react-bootstrap/Carousel';
 
 export default () => {
     const router = useRouter()
@@ -98,15 +98,43 @@ export default () => {
             <div class="row">
                 <aside class="col-sm-6" >
                     <article class="gallery-wrap"> 
-                    <div class="img-big-wrap">
-                        <div>
-                            <LazyLoadImage 
-                            alt={product.name} 
-                            src={product.image}
-                            effect="blur"
-                            />
+                    <div class="img-big-wrap" style={{margin: '10%'}}>
+                    <div className="carousel-container-product">
+                        <Carousel interval={15000}>
+                            <Carousel.Item>
+                            <div className="image-slider">
+                                <img
+                                className="mw-100"
+                                src={`${product.image}-1.jpg`}
+                                />
+                            </div>
+                            <Carousel.Caption>
+                            </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                            <div className="image-slider">
+                                <img
+                                className="mw-100"
+                                src={`${product.image}-2.jpg`}
+                                />
+                            </div>
+                            <Carousel.Caption>
+                            </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                            <div className="image-slider">
+                                <img
+                                className="mw-100"
+                                src={`${product.image}-3.jpg`}
+                                />
+                            </div>
+                            <Carousel.Caption>
+                            </Carousel.Caption>
+                            </Carousel.Item>
+                        </Carousel>
                         </div>
-                    </div>  
+                    </div>
+                    
                     </article> 
                 </aside>
                 <aside class="col-sm-6">
@@ -118,10 +146,6 @@ export default () => {
                             <span class="currency">$</span><span class="num">{product.price}</span>
                         </span> 
                     </p> 
-                    <dl class="item-property">
-                    <dt >Descripción</dt>
-                    <dd className="new-line">{product.detail}</dd>
-                    </dl>
                     
                     <hr></hr>
                     { product.stock < 1 ? (
@@ -135,6 +159,7 @@ export default () => {
                                         <p class="text-danger">Solo tenemos {product.stock} disponibles!</p>
                                     )}
                                 </div>
+                                <br></br>
                                 <div class="form-check" onChange={handleShipment}>
                                     <input class="form-check-input" type="radio" name="shipment" id="shipment" value="shipment"/>
                                     <label class="form-check-label" for="shipment">
@@ -174,14 +199,21 @@ export default () => {
                                     </div>
                                     
                                     <button onClick = {() => handleCheckout(product)} class="btn btn-sm btn-success position-static" style={{fontSize: "1.2em", width: "7em",
-                                        marginTop: "0.8em", height: "2.7em", marginBottom:'2em'}}>Efectivo</button>
+                                        marginTop: "1.2em", height: "2.7em"}}>Efectivo</button>
                                 </div>
                             </div>
                         )
                     }
                     </article>
                 </aside> 
-            </div> 
+            </div>
+            <hr></hr>
+            <div className ="row ml-2 mr-2">
+                    <dl class="item-property m-3">
+                    <dt >Descripción</dt>
+                    <dd className="new-line">{product.detail}</dd>
+                    </dl>
+            </div>
         </div>
         ) : (
             <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>

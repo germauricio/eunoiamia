@@ -13,6 +13,14 @@ html,body,#page, header { height:100%;}
   z-index: 0;
 }
 
+.carousel-container-product {
+  display: block;
+  margin: auto;
+  background-color: #ddd;
+  min-width: 100%;
+  z-index: 0;
+}
+
 .header {
   padding: 20px 10px;
   background-image: url('/banner.jpg');
@@ -599,7 +607,6 @@ nav ul li a:hover{
   height: 400px;
   width: auto;
   display: inline-block;
-  cursor: zoom-in;
   max-width: 100%;
   text-align: center;
 }
