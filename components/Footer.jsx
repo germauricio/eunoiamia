@@ -25,7 +25,7 @@ const Footer = () => {
                 <h3>Hecho con amor, por <a
                             target="_blank"
                             rel="noopener noreferrer"
-                            href="https://github.com/germauricio" className="link text-white">Mauricio Pauluk</a></h3>
+                            href="https://www.linkedin.com/in/mauriciopauluk/" className="link text-white">Mauricio Pauluk</a></h3>
             </div>
         </div>
     );
