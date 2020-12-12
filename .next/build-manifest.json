@@ -24,10 +24,15 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/products": [
+    "/cart": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/products.js"
+      "static/chunks/pages/cart.js"
+    ],
+    "/checkout": [
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/chunks/pages/checkout.js"
     ],
     "/products/name/[name]": [
       "static/chunks/main.js",
