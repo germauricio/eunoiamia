@@ -52,7 +52,8 @@ const Cart = () => {
             image: product.image,
             id: product.id,
             stock: product.stock,
-            name: product.name
+            name: product.name,
+            cost: product.cost
         }
             setCart(curr => [...curr, currProduct]);
         }

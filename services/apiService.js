@@ -31,8 +31,10 @@ export const getProduct = async (productName) => {
 
 export const makeSell = async (cart, totalPrice, user, shipment) => {
     var sellProductsName = '';
+    var cost = 0;
 
     cart.map( async product => {
+        cost += product.cost * product.quantity;
         product.stock = product.stock - product.quantity;
         sellProductsName += `${product.description} x${product.quantity} `
         await editProduct(product);
@@ -42,7 +44,9 @@ export const makeSell = async (cart, totalPrice, user, shipment) => {
         product_name: sellProductsName,
         total: totalPrice,
         contact: user,
-        shipment: shipment
+        shipment: shipment, 
+        cost: cost,
+        payment: 'Efectivo'
     }
     
     return (await axios.post(url + '/api/admin/sell', JSON.stringify({

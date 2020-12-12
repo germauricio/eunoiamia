@@ -24,7 +24,8 @@ export default () => {
             id: product.id,
             shipment: shipment,
             stock: product.stock,
-            name: product.name
+            name: product.name,
+            cost: product.cost
         }
         setCart(curr => [...curr, currProduct]);
     }
