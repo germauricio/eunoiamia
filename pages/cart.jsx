@@ -32,15 +32,19 @@ const Cart = () => {
                 price: product.price,
                 quantity: cartProduct.quantity - 1,
                 image: product.image,
-                id: product.id
+                id: product.id,
+                stock: product.stock,
+                name: product.name,
+                cost: product.cost
             }
             setCart(curr => [...curr, currProduct]);
         }
+        setOutOfStock(false);
     }
 
     const addToCart = (product) => {
         const cartProduct = cart.find(item => item.id == product.id);
-        if(product.quantity +1 > product.stock){
+        if(cartProduct.quantity +1 > cartProduct.stock){
             setOutOfStock(true);
         }
         else {
@@ -132,11 +136,11 @@ const Cart = () => {
                             <div class="remove">
                                 <button onClick={() => {decreaseQuantity(item)}}>Remover</button>
                                 <button className="m-4" onClick={() => {addToCart(item);}}>Agregar</button>
-                            {outOfStock && (
-                                <div className="w-100 pr-4">
-                                    <p class="text-danger">Solo tenemos {item.stock} disponibles!</p>
-                                </div>
-                            )}
+                                {outOfStock && (
+                                    <div className="w-100 pr-4">
+                                        <p class="text-danger">Solo tenemos {item.stock} disponibles!</p>
+                                    </div>
+                                )}
                             </div>
                         </div>
                 )})}

@@ -16,13 +16,15 @@ export default () => {
     const [missingShipment, showShipmentMissing] = useState(false);
     const [outOfStock, setOutOfStock] = useState(false);
 
+    var inCart = cart.find(item => item.id == product.id);
+    var quantityInCart = inCart ? inCart.quantity : 0;
+
     const addToCart = () => {
         const cartProduct = cart.find(item => item.id == product.id);
         if(cartProduct && cartProduct.quantity + quantity > cartProduct.stock) {
             setOutOfStock(true);
         }
         else {
-
             if(cartProduct){
                 cartProduct.quantity += 1;
                 setCart(cart.filter((item) => item.id !== product.id ));
@@ -50,10 +52,11 @@ export default () => {
     }
 
     const handleQuantity = (e) => {
-        if(e.target.value > product.stock) {
+        if(parseInt(e.target.value) + quantityInCart > product.stock) {
             setOutOfStock(true);
         }
         else {
+            setOutOfStock(false)
             setQuantity(e.target.value);
             setMercadoPagoPreferences(product.price, product.description, product.quantity, shipment);
         }
@@ -175,9 +178,7 @@ export default () => {
                                 </div>
                             </div>
                         )
-                    
                     }
-                    
                     </article>
                 </aside> 
             </div> 
