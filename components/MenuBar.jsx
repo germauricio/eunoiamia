@@ -29,6 +29,7 @@ const MenuBar = () => {
                   <Link path="/products/category/combos" title="Combos"/>
                   <Link path="/products/category/cuidado-capilar" title="Cuidado capilar"/>
                   <Link path="/products/category/cuidado-de-la-piel" title="Cuidado de la piel"/>
+                  <Link path="/products/category/cuidado-personal" title="Cuidado personal"/>
                   <Link path="/products/category/salud-bucal" title="Salud bucal"/>
                   <Link path="/products/category/desodorante-natural" title="Desodorante natural"/>
                   <Link path="/products/category/jabones-vegetales" title="Jabones vegetales"/>
