@@ -464,7 +464,7 @@ nav ul li a:hover{
 .checkbtn{
   font-size: 30px;
   color: white;
-  float: right;
+  float: left;
   line-height: 80px;
   margin-right: 40px;
   cursor: pointer;
@@ -535,7 +535,7 @@ nav ul li a:hover{
     position: absolute;
     z-index: 1;
   }
-  
+
   nav ul li{
     display: block;
     margin: 50px 0;

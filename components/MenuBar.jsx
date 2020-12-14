@@ -2,8 +2,6 @@ import React, {useState, useContext} from 'react';
 import {CartContext} from '../services/cartContext';
 import Link from './Link';
 
-const useForceUpdate = () => useState()[1];
-
 const MenuBar = () => {
   const {cartProvider} = useContext(CartContext); 
   const [cart, setCart] = cartProvider;
@@ -27,7 +25,7 @@ const MenuBar = () => {
         src="/hamburguer.png"
         height="30px"
         alt="hamburguer"
-        className="mx-3 mt-4"
+        className="checkbtn mx-3 mt-4"
         />
         <ul style={{left: hideMenu}}>
           <li onClick = {handleHide} ><Link title="Inicio" path = "/"/></li>
