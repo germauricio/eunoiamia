@@ -104,7 +104,7 @@ const Cart = () => {
 
                                     <MercadoPagoButton name={productsName} price={totalPrice} quantity="1" shipment={shipment} />
                                     <button onClick={handleCheckout} class="btn btn-sm btn-success position-static" style={{fontSize: "1.2em", width: "7em",
-                                    marginTop: "0.8em", height: "2.7em"}}>Efectivo</button>
+                                    marginTop: "1.2em", height: "2.7em"}}>Efectivo</button>
                                 </div>
                             </div>
                         </div>
