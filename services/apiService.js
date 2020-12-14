@@ -15,7 +15,6 @@ export const getProductsByCategory = async (category) => {
 }
 
 export const editProduct = async (params) => {
-    console.log(params)
     return (await axios.put(url + '/api/product', params, 
     {
         headers: {"Access-Control-Allow-Headers": "*"}

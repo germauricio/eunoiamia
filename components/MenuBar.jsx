@@ -5,46 +5,81 @@ import Link from './Link';
 const useForceUpdate = () => useState()[1];
 
 const MenuBar = () => {
-  const forceUpdate = useForceUpdate();
   const {cartProvider} = useContext(CartContext); 
   const [cart, setCart] = cartProvider;
+  const [hideMenu, setHideMenu] = useState('-100%')
   const items = cart.reduce((acc, curr) => acc + parseInt(curr.quantity, 10), 0)
+
+  const handleHide = (isHamburguer = false) => {
+    if(hideMenu == '0') {
+      setHideMenu('-100%');
+    }
+    else if(isHamburguer == true){
+      setHideMenu('0');
+    }
+  }
 
   return (
     <div>
       <nav className="menu-bar">
-        <input type="checkbox" id="check"/>
-        <label style={{float:"left"}} for="check" className="checkbtn ml-3">
-          <img src="/hamburguer.png" height="30px" alt="hamburguer"></img>
-        </label>
-        <ul>
-          <li><Link title="Inicio" path = "/"/></li>
+        <img 
+        onClick={() => handleHide(true)}
+        src="/hamburguer.png"
+        height="30px"
+        alt="hamburguer"
+        className="mx-3 mt-4"
+        />
+        <ul style={{left: hideMenu}}>
+          <li onClick = {handleHide} ><Link title="Inicio" path = "/"/></li>
           <img alt="separator" src="/separator.png" height="30px" />
-          <li><Link title="Info" path = "/info" /></li>
+          <li onClick = {handleHide} ><Link title="Info" path = "/info" /></li>
           <img alt="separator" src="/separator.png" height="30px" />
           <li><div class="dropdown">
                 <button class="dropbtn">Productos</button>
                 <div class="dropdown-content">
-                  <Link path="/products" title="Todos"/>
-                  <Link path="/products/category/combos" title="Combos"/>
-                  <Link path="/products/category/cuidado-capilar" title="Cuidado capilar"/>
-                  <Link path="/products/category/cuidado-de-la-piel" title="Cuidado de la piel"/>
-                  <Link path="/products/category/cuidado-personal" title="Cuidado personal"/>
-                  <Link path="/products/category/salud-bucal" title="Salud bucal"/>
-                  <Link path="/products/category/desodorante-natural" title="Desodorante natural"/>
-                  <Link path="/products/category/jabones-vegetales" title="Jabones vegetales"/>
-                  <Link path="/products/category/accesorios-sustentables" title="Accesorios sustentables"/>
-                  <Link path="/products/category/almohadillas-termicas" title="Almohadillas térmicas"/>
-                  <Link path="/products/category/aromaterapia" title="Aromaterapia"/>
+                  <div onClick = {handleHide}>  
+                    <Link path="/products" title="Todos"/>
+                  </div>
+                  <div onClick = {handleHide}>
+                    <Link path="/products/category/combos" title="Combos"/>
+                  </div>
+                  <div onClick = {handleHide}>  
+                    <Link path="/products/category/cuidado-capilar" title="Cuidado capilar"/>
+                  </div>
+                  <div onClick = {handleHide}>  
+                    <Link path="/products/category/cuidado-de-la-piel" title="Cuidado de la piel"/>
+                  </div>
+                  <div onClick = {handleHide}>  
+                    <Link path="/products/category/cuidado-personal" title="Cuidado personal"/>
+                  </div>
+                  <div onClick = {handleHide}>  
+                    <Link path="/products/category/salud-bucal" title="Salud bucal"/>
+                  </div>
+                  <div onClick = {handleHide}>
+                    <Link path="/products/category/desodorante-natural" title="Desodorante natural"/>
+                  </div>
+                  <div onClick = {handleHide}>
+                    <Link path="/products/category/jabones-vegetales" title="Jabones vegetales"/>
+                  </div>
+                  <div onClick = {handleHide}>  
+                    <Link path="/products/category/accesorios-sustentables" title="Accesorios sustentables"/>
+                  </div>
+                  <div onClick = {handleHide}>  
+                    <Link path="/products/category/almohadillas-termicas" title="Almohadillas térmicas"/>
+                  </div>
+                  <div onClick = {handleHide}>  
+                    <Link path="/products/category/aromaterapia" title="Aromaterapia"/>
+                  </div>
+
                 </div>
               </div>
           </li>
           <img alt="separator" src="/separator.png" height="30px" />
-          <li><Link title="Quiénes somos"path = "/whoarewe"/></li>
+          <li onClick = {handleHide} ><Link title="Quiénes somos"path = "/whoarewe"/></li>
           <img alt="separator" src="/separator.png" height="30px" />
-          <li><Link title="Contacto" path = "/contact"/></li>
+          <li onClick = {handleHide} ><Link title="Contacto" path = "/contact"/></li>
         </ul>
-        <div className="cart">
+        <div onClick = {handleHide} className="cart">
           <Link 
             title={
               <div>

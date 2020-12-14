@@ -38,7 +38,6 @@ const Product = ({product}) => {
             }
         }
     }
-    console.log(`${product.image}-1.jpg`)
     return(
         <div class="product-card">
             <Link 
