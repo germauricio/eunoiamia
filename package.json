@@ -38,6 +38,7 @@
     "react-toastify": "^6.0.8",
     "react-toastr": "^3.0.0",
     "redux": "^4.0.5",
+    "semver": "^7.3.4",
     "sequelize": "^6.3.4",
     "toastr": "^2.1.4"
   }
