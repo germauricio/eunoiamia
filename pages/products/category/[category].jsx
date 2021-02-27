@@ -8,7 +8,7 @@ import ProductList from '../../../components/products/ProductList';
 
 const Category = () => {
     const [products, setProducts] = useState(false);
-    const router = useRouter()
+    const router = useRouter();
 
     useEffect( () => {
         (async () => {
@@ -20,8 +20,9 @@ const Category = () => {
     }, [router.query.category]);
 
     var transformedCategory = '';
+
     if(router.query.category){
-        router.query.category.replaceAll("-", " ");
+        transformedCategory = router.query.category.replaceAll("-", " ");
     }
 
     return(
