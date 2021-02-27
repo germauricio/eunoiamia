@@ -139,8 +139,8 @@ export default () => {
                 </aside>
                 <aside class="col-sm-6">
                     <article class="card-body p-5">
-                        <h3 class="title mb-3">{product.description}</h3>
-                    
+                        <h3 class="product-name-detail title mb-3">{product.description}</h3>
+                        
                     <p class="price-detail-wrap"> 
                         <span class="price h3 text-warning"> 
                             <span class="currency">$</span><span class="num">{product.price}</span>
@@ -154,33 +154,41 @@ export default () => {
                             <div>
                                 <div class="item-property">
                                     <label className="px-4">Cantidad: </label>
-                                    <input className="col-xs-1" type="number" value={quantity} onChange={handleQuantity}/>
+                                    <div className="container">
+                                        <div className="input-number">
+                                            <button type="button" onClick={() => setQuantity(quantity-1)}>&minus;</button>
+                                            <span>{quantity}</span>
+                                            <button type="button" onClick={() => setQuantity(quantity+1)}>&#43;</button>     
+                                        </div>
+                                    </div>
                                     { product.stock < quantity && (
                                         <p class="text-danger">Solo tenemos {product.stock} disponibles!</p>
                                     )}
                                 </div>
-                                <br></br>
-                                <div class="form-check" onChange={handleShipment}>
-                                    <input class="form-check-input" type="radio" name="shipment" id="shipment" value="shipment"/>
-                                    <label class="form-check-label" for="shipment">
+                                <button onClick = {() => {addToCart(product)}} class="btn btn-lg btn-outline-primary text-uppercase mb-4"> 
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Añadir al carrito 
+                                </button>
+
+                                <hr></hr>
+
+                                <div className="inputGroup" onChange={handleShipment}>
+                                    <input type="radio" name="shipment" id="shipment" value="shipment"/>
+                                    <label for="shipment">
                                         Envío (costo a acordar, mínimo $150)
                                     </label>
+                                </div>
                                     <br></br>
-                                    <input class="form-check-input" type="radio" name="shipment" id="retirement" value="retirement"/>
-                                    <label class="form-check-label" for="retirement">
+
+                                <div className="inputGroup" onChange={handleShipment}>
+                                    <input type="radio" name="shipment" id="retirement" value="retirement"/>
+                                    <label for="retirement">
                                         Retiro (sin cargo por Saenz Peña)
                                     </label>
                                 </div>
                                 { missingShipment && (
                                     <p class="text-danger">Seleccionar un metodo de envio</p>
                                 )}
-                                <hr></hr>
-                                
-                                <br></br>
-                                <button onClick = {() => {addToCart(product)}} class="btn btn-lg btn-outline-primary text-uppercase mb-4"> 
-                                    <i class="fas fa-shopping-cart"></i>
-                                    Añadir al carrito 
-                                </button>
                                 {outOfStock && (
                                     <p class="text-danger">Solo tenemos {product.stock} disponibles!</p>
                                 )}
@@ -212,6 +220,9 @@ export default () => {
                     <dl class="item-property m-3">
                     <dt >Descripción</dt>
                     <dd className="new-line">{product.detail}</dd>
+                    <div className="py-3">
+                        <img src="/ecoFriendly.png" height="100px"></img>
+                    </div>
                     </dl>
             </div>
         </div>

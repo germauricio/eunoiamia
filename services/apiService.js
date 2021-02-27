@@ -28,6 +28,13 @@ export const getProduct = async (productName) => {
     })).data;
 }
 
+export const getOutstandingProducts = async () => {
+    return (await axios.get(url + '/api/products/outstandings/',
+    {
+        headers: {"Access-Control-Allow-Headers": "*"}
+    })).data;
+}
+
 export const makeSell = async (cart, totalPrice, user, shipment) => {
     var sellProductsName = '';
     var cost = 0;
