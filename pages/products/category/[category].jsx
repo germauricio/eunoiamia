@@ -19,7 +19,10 @@ const Category = () => {
         })()
     }, [router.query.category]);
 
-    var transformedCategory = router.query.category.replaceAll("-", " ");
+    var transformedCategory = '';
+    if(router.query.category){
+        router.query.category.replaceAll("-", " ");
+    }
 
     return(
         <div>
