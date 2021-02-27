@@ -4,9 +4,12 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const cors = require('cors');
+const loaders = require('./api/loaders');
+
 
 app.prepare().then(() => {
   const server = express();
+  loaders({expressApp: server});
 
   server.get('*', (req, res) => {
     req.headers["Access-Control-Allow-Headers"] = "*";
