@@ -41,8 +41,5 @@
     "semver": "^7.3.4",
     "sequelize": "^6.3.4",
     "toastr": "^2.1.4"
-  },
-  "devDependencies": {
-    "@netlify/plugin-nextjs": "^3.0.0"
   }
 }
