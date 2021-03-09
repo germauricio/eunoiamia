@@ -52,7 +52,7 @@ const Product = ({product}) => {
                 linkClass= "product-a"
             />
             <div className="product-details">
-                <h4><Link path={`/products/name/${product.name}`} linkClass = "product-a" title={product.description}></Link></h4>
+                <h4><Link path={`/name/${product.name}`} linkClass = "product-a" title={product.description}></Link></h4>
                 <div className="product-bottom-details">
                     <div className="product-price">${product.price}</div>
                     <div className="product-links">

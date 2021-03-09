@@ -39,34 +39,34 @@ const MenuBar = () => {
                     <Link path="/products" title="Todos"/>
                   </div>
                   <div onClick = {handleHide}>
-                    <Link path="/products/category/combos" title="Combos"/>
+                    <Link path="/category/combos" title="Combos"/>
                   </div>
                   <div onClick = {handleHide}>  
-                    <Link path="/products/category/cuidado-capilar" title="Cuidado capilar"/>
+                    <Link path="/category/cuidado-capilar" title="Cuidado capilar"/>
                   </div>
                   <div onClick = {handleHide}>  
-                    <Link path="/products/category/cuidado-de-la-piel" title="Cuidado de la piel"/>
+                    <Link path="/category/cuidado-de-la-piel" title="Cuidado de la piel"/>
                   </div>
                   <div onClick = {handleHide}>  
-                    <Link path="/products/category/cuidado-personal" title="Cuidado personal"/>
+                    <Link path="/category/cuidado-personal" title="Cuidado personal"/>
                   </div>
                   <div onClick = {handleHide}>  
-                    <Link path="/products/category/salud-bucal" title="Salud bucal"/>
+                    <Link path="/category/salud-bucal" title="Salud bucal"/>
                   </div>
                   <div onClick = {handleHide}>
-                    <Link path="/products/category/desodorante-natural" title="Desodorante natural"/>
+                    <Link path="/category/desodorante-natural" title="Desodorante natural"/>
                   </div>
                   <div onClick = {handleHide}>
-                    <Link path="/products/category/jabones-vegetales" title="Jabones vegetales"/>
+                    <Link path="/category/jabones-vegetales" title="Jabones vegetales"/>
                   </div>
                   <div onClick = {handleHide}>  
-                    <Link path="/products/category/accesorios-sustentables" title="Accesorios sustentables"/>
+                    <Link path="/category/accesorios-sustentables" title="Accesorios sustentables"/>
                   </div>
                   <div onClick = {handleHide}>  
-                    <Link path="/products/category/almohadillas-termicas" title="Almohadillas térmicas"/>
+                    <Link path="/category/almohadillas-termicas" title="Almohadillas térmicas"/>
                   </div>
                   <div onClick = {handleHide}>  
-                    <Link path="/products/category/aromaterapia" title="Aromaterapia"/>
+                    <Link path="/category/aromaterapia" title="Aromaterapia"/>
                   </div>
 
                 </div>
