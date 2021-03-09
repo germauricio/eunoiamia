@@ -75,15 +75,15 @@ const ItemCart = ({item, totalPrice}) => {
             <p class="quantity-field">{item.quantity}</p>
         </div>
         <div class="subtotal">${totalPrice}</div>
-        <div class="remove">
-            <button className ="btn btn-sm btn-danger" onClick={() => {decreaseQuantity(item)}}>Remover</button>
-            <button className ="btn btn-sm btn-info" onClick={() => {addToCart(item);}}>Agregar</button>
-            {outOfStock && (
-                <div className="w-100 pr-4">
-                    <p class="text-danger">Solo tenemos {item.stock} disponibles!</p>
-                </div>
-            )}
-        </div>
+            <div class="remove">
+                <button className ="btn btn-sm btn-danger" onClick={() => {decreaseQuantity(item)}}>Remover</button>
+                <button className ="btn btn-sm btn-info" onClick={() => {addToCart(item);}}>Agregar</button>
+                {outOfStock && (
+                    <div className="w-100 pr-4">
+                        <p class="text-danger">Solo tenemos {item.stock} disponibles!</p>
+                    </div>
+                )}
+            </div>
     </div>
     );
 }

@@ -8,6 +8,9 @@ const Home = () => {
         <div>
             <SlideShow />
             <Outstanding />
+            <div className="container">
+                <img height="100px" src="/consumoConsciente.png"></img>
+            </div>
             <InstagramDisplay />
         </div>
     );

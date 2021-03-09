@@ -111,6 +111,7 @@ const Cart = () => {
                                 </div>
                             </div>
                         </div>
+                            <blockquote><strong>Aclaracion: Si se selecciona con "Envío" el costo dependera de la zona y será a acordar con el vendedor </strong></blockquote>
                     </div>
                 </aside>
             </div>
