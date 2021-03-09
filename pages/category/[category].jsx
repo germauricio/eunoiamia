@@ -1,9 +1,9 @@
 
 
 import React, { useState, useEffect } from 'react';
-import {getProductsByCategory} from '../../../services/apiService';
+import {getProductsByCategory} from '../../services/apiService';
 import {useRouter} from 'next/router';
-import ProductList from '../../../components/products/ProductList';
+import ProductList from '../../components/products/ProductList';
 
 
 const Category = () => {

@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {useRouter} from 'next/router'
-import {getProduct} from '../../../services/apiService';
-import {CartContext} from '../../../services/cartContext';
-import MercadoPagoButton from '../../../components/products/MercadoPagoButton'
-import { setMercadoPagoPreferences } from '../../../services/mercadoPago';
+import {getProduct} from '../../services/apiService';
+import {CartContext} from '../../services/cartContext';
+import MercadoPagoButton from '../../components/products/MercadoPagoButton'
+import { setMercadoPagoPreferences } from '../../services/mercadoPago';
 import Carousel from 'react-bootstrap/Carousel';
 
 export default () => {
