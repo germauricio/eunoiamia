@@ -41,7 +41,7 @@ const Product = ({product}) => {
     return(
         <div class="product-card">
             <Link 
-                path={`/products/name/${product.name}`} 
+                path={`/name/${product.name}`} 
                 title={
                     <div class="product-tumb">
                     <LazyLoadImage
