@@ -5,6 +5,23 @@
 
 html,body,#page, header { height:100%;}
 
+.breadCrumb {
+  padding-left: 2rem;
+}
+.breadCrumb span {
+  color: rgb(142, 142, 142);
+} 
+.breadCrumbLink {
+  text-decoration: none;
+  color: rgb(142, 142, 142);
+  transition: color 0.5s ease;
+}
+
+.breadCrumbLink:hover {
+  color:rgb(0, 177, 216);
+  text-decoration: none;
+}
+
 .carousel-container {
   position:relative;
   margin: auto;

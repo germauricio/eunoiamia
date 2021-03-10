@@ -5,6 +5,7 @@ import {CartContext} from '../../services/cartContext';
 import MercadoPagoButton from '../../components/products/MercadoPagoButton'
 import { setMercadoPagoPreferences } from '../../services/mercadoPago';
 import Carousel from 'react-bootstrap/Carousel';
+import BreadCrumb from '../../components/BreadCrumb';
 
 export default () => {
     const router = useRouter()
@@ -92,6 +93,10 @@ export default () => {
       }, [router.query.name]);
     
     return(
+    <div>
+        {product && (
+        <BreadCrumb category={product.category} />
+        )}
         <div class="container">
         { product ? (
             <div class="card">
@@ -224,11 +229,12 @@ export default () => {
                         <img src="/ecoFriendly.png" height="100px"></img>
                     </div>
                     </dl>
+                </div>
             </div>
-        </div>
         ) : (
             <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
         )}        
+        </div>
         </div>
     )
 }
