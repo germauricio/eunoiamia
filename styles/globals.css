@@ -33,9 +33,9 @@ html,body,#page, header { height:100%;}
 .carousel-container-product {
   display: block;
   margin: auto;
-  background-color: #ddd;
-  min-width: 100%;
+  background-color: rgb(255, 255, 255);
   z-index: 0;
+  padding: 4rem;
 }
 
 .header {
@@ -621,6 +621,10 @@ nav ul li a:hover{
 }
 
 @media (max-width: 858px){
+  
+  .carousel-container-product {
+    padding: 0;
+  }
   nav{
     padding-top:0;
   }
@@ -1159,11 +1163,7 @@ button.mercadopago-button {
     float: none;
   }
   .remove {
-
-    bottom: 0;
-    text-align: left;
-    margin-top: 0.75rem;
-    position: absolute;
+    bottom:5rem;
   }
   
   .summary {

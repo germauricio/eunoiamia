@@ -103,13 +103,13 @@ export default () => {
             <div class="row">
                 <aside class="col-sm-6" >
                     <article class="gallery-wrap"> 
-                    <div class="img-big-wrap" style={{margin: '10%'}}>
+                    <div class="img-big-wrap">
                     <div className="carousel-container-product">
                         <Carousel interval={15000}>
                             <Carousel.Item>
                             <div className="image-slider">
                                 <img
-                                className="mw-100"
+                                className="w-100 h-100"
                                 src={`${product.image}-1.jpg`}
                                 />
                             </div>

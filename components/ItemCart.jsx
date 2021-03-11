@@ -69,15 +69,18 @@ const ItemCart = ({item, totalPrice}) => {
                 <p className="p-cart ml-4">Código de producto: {item.id}</p>
             </div>
         </div>
-
-        <div class="price-cart">${item.price}</div>
-        <div class="quantity-cart">
-            <p class="quantity-field">{item.quantity}</p>
+        <div>
+            <div class="price-cart">${item.price}</div>
+            <div class="quantity-cart">
+                <p class="quantity-field">{item.quantity}</p>
+            </div>
+            <div class="subtotal">${totalPrice}</div>
         </div>
-        <div class="subtotal">${totalPrice}</div>
             <div class="remove">
-                <button className ="btn btn-sm btn-danger" onClick={() => {decreaseQuantity(item)}}>Remover</button>
-                <button className ="btn btn-sm btn-info" onClick={() => {addToCart(item);}}>Agregar</button>
+                <div className="buttons">
+                    <button className ="btn btn-sm btn-danger" onClick={() => {decreaseQuantity(item)}}>Remover</button>
+                    <button className ="btn btn-sm btn-info" onClick={() => {addToCart(item);}}>Agregar</button>
+                </div>
                 {outOfStock && (
                     <div className="w-100 pr-4">
                         <p class="text-danger">Solo tenemos {item.stock} disponibles!</p>
