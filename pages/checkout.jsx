@@ -72,7 +72,9 @@ const CashCheckout = () => {
             <label for="formGroupExampleInput2">Dejanos tu usuario de Instagram o email y nosotros nos contactaremos con vos para organizar la entrega</label>
             <input onChange={handleChange} required type="text" class="form-control w-50 m-auto" id="formGroupExampleInput2" placeholder="Usuario o email"/>
             { isLoading ? (
-                <img style={{minHeight: '65vh'}} src="/Rolling-1s-200px.gif" height="200px" className="loading" alt="loading"/>
+                <div style={{minHeight: '65vh'}}>
+                  <img src="/Rolling-1s-200px.gif" height="200px" className="loading" alt="loading"/>
+                </div>
               ):(
                 <button onClick={handleSubmit} class="btn btn-primary btn-lg mt-3">Comprar</button>
               )}

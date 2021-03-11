@@ -116,26 +116,6 @@ export default () => {
                             <Carousel.Caption>
                             </Carousel.Caption>
                             </Carousel.Item>
-                            <Carousel.Item>
-                            <div className="image-slider">
-                                <img
-                                className="mw-100"
-                                src={`${product.image}-2.jpg`}
-                                />
-                            </div>
-                            <Carousel.Caption>
-                            </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                            <div className="image-slider">
-                                <img
-                                className="mw-100"
-                                src={`${product.image}-3.jpg`}
-                                />
-                            </div>
-                            <Carousel.Caption>
-                            </Carousel.Caption>
-                            </Carousel.Item>
                         </Carousel>
                         </div>
                     </div>
@@ -232,7 +212,9 @@ export default () => {
                 </div>
             </div>
         ) : (
-            <img style={{minHeight: '65vh'}} src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
+            <div style={{minHeight: '65vh'}}>
+                <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
+            </div>
         )}        
         </div>
         </div>

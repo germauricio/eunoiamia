@@ -45,7 +45,9 @@ function Products(){
                     <ProductList products={products} />
                 </div>
             ) : (
-                <img style={{minHeight: '65vh'}} src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
+                <div style={{minHeight: '65vh'}}>
+                    <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
+                </div>
                 )}
             </div>
         </div>

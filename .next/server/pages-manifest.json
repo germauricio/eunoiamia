@@ -2,9 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/": "pages/index.js",
   "/products": "pages/products.js",
-  "/cart": "pages/cart.js",
   "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
-  "/name/[name]": "pages/name/[name].js",
-  "/category/[category]": "pages/category/[category].js"
+  "/name/[name]": "pages/name/[name].js"
 }
