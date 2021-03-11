@@ -39,8 +39,8 @@ const Cart = () => {
 
     return(
         !totalPrice ? (
-            <div className ="container mb-4">
-                <img src="carritovacio.png" height="400px" alt="carritovacio"/>
+            <div className ="container mb-4" style={{minHeight: '65vh'}}>
+                <img src="carritovacio.png" style={{maxWidth: "100%"}} height="400px" alt="carritovacio"/>
             </div>
         ) : (
         <div className="main-cart">
