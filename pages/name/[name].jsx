@@ -116,6 +116,26 @@ export default () => {
                             <Carousel.Caption>
                             </Carousel.Caption>
                             </Carousel.Item>
+                            <Carousel.Item>
+                            <div className="image-slider">
+                                <img
+                                className="w-100 h-100"
+                                src={`${product.image}-2.jpg`}
+                                />
+                            </div>
+                            <Carousel.Caption>
+                            </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                            <div className="image-slider">
+                                <img
+                                className="w-100 h-100"
+                                src={`${product.image}-3.jpg`}
+                                />
+                            </div>
+                            <Carousel.Caption>
+                            </Carousel.Caption>
+                            </Carousel.Item>
                         </Carousel>
                         </div>
                     </div>

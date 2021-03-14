@@ -14,7 +14,7 @@ function SliderShow() {
             />
           </div>
           <Carousel.Caption>
-            <h3 className="carousel-title">Jabón natural</h3>
+            <h3 className="carousel-title">Shampoo Sólido</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
