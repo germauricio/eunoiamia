@@ -22,7 +22,7 @@ const Category = () => {
     var transformedCategory = '';
 
     if(router.query.category){
-        transformedCategory = router.query.category.replace("/-/g", " ");
+        transformedCategory = router.query.category.replace(/-/g, " ");
     }
 
     return(
