@@ -212,7 +212,7 @@ export default () => {
                 </div>
             </div>
         ) : (
-            <div style={{minHeight: '65vh'}}>
+            <div>
                 <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
             </div>
         )}        
