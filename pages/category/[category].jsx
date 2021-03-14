@@ -34,7 +34,7 @@ const Category = () => {
             { products ? (
                 <ProductList products={products} />
                 ) : (
-                    <div style={{minHeight: '65vh'}}>
+                    <div>
                         <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
                     </div>
                 )}
