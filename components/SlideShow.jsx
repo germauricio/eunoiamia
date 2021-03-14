@@ -9,7 +9,7 @@ function SliderShow() {
           <div className="image-slider">
             <img
               className="w-100"
-              src="jabon.jpg"
+              src="jabon.jpeg"
               alt="Jabon"
             />
           </div>
@@ -21,7 +21,7 @@ function SliderShow() {
           <div className="image-slider">
             <img
               className="w-100"
-              src="peine.jpg"
+              src="peine.jpeg"
               alt="Peine"
             />
           </div>
@@ -33,7 +33,7 @@ function SliderShow() {
           <div className="image-slider">
             <img
               className="w-100"
-              src="cepillo.jpg"
+              src="cepillo.jpeg"
               alt="Cepillo"
             />
           </div>

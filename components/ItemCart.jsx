@@ -57,7 +57,7 @@ const ItemCart = ({item, totalPrice}) => {
         <div class="item-cart">
             <div class="product-image-cart">
                 <img 
-                src={`${item.image}-1.jpg`} 
+                src={`${item.image}-1.jpeg`} 
                 height ="160px" 
                 alt={item.image} 
                 class="product-frame"
