@@ -9,7 +9,7 @@ const Home = () => {
             <SlideShow />
             <Outstanding />
             <div className="container">
-                <img height="100px" src="/consumoConsciente.png"></img>
+                <img className="consumoConsciente" src="/consumoConsciente.png"></img>
             </div>
             <InstagramDisplay />
         </div>

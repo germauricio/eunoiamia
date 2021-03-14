@@ -97,13 +97,13 @@ export default () => {
         {product && (
             <BreadCrumb category={product.category} />
         )}
-        <div class="container">
+        <div className="container">
         { product ? (
-            <div class="card">
-            <div class="row">
+            <div className="card">
+            <div className="row">
                 <aside class="col-sm-6" >
-                    <article class="gallery-wrap"> 
-                    <div class="img-big-wrap">
+                    <article className="gallery-wrap"> 
+                    <div className="img-big-wrap">
                     <div className="carousel-container-product">
                         <Carousel interval={15000}>
                             <Carousel.Item>
