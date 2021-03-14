@@ -95,9 +95,9 @@ export default () => {
     
     return(
     <div>
-        {/* {product && (
-        <BreadCrumb category={product.category} />
-        )} */}
+        {product && (
+            <BreadCrumb category={product.category} />
+        )}
         <div class="container">
         { product ? (
             <div class="card">

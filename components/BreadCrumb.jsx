@@ -5,7 +5,7 @@ const BreadCrumb = ({category}) => {
     const [transformedCategory, setCategory] = useState('');
 
     useEffect( () => {
-            setCategory(category.replaceAll("-", " "));
+            setCategory(category);
     }, [category])
 
     return (
