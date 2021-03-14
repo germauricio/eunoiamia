@@ -32,10 +32,9 @@ const Category = () => {
             </div>
             <div className="container">
             { products ? (
-                <h1>holi</h1>
-                //<ProductList products={products} />
+                <ProductList products={products} />
                 ) : (
-                    <div>
+                    <div style={{minHeight: '65vh'}}>
                         <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
                     </div>
                 )}

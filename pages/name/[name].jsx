@@ -83,6 +83,7 @@ export default () => {
     useEffect(() => {
         (async () => {
             if(router){
+                console.log(router)
                 const gettedProduct = await getProduct(router.query.name);
                 if(gettedProduct){
                     gettedProduct.quantity = 1;

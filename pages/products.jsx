@@ -42,7 +42,6 @@ function Products(){
 
             { products ? (
                 <div className="container">
-                    <h2 style={{color: "grey"}}>🌻 Productos 🌻</h2>
                     <ProductList products={products} />
                 </div>
             ) : (

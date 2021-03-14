@@ -11,6 +11,7 @@ const Home = () => {
             <div className="container">
                 <img height="100px" src="/consumoConsciente.png"></img>
             </div>
+            <InstagramDisplay />
         </div>
     );
   }
