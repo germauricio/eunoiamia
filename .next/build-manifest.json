@@ -29,10 +29,15 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/category/[category]": [
+    "/cart": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
-      "static/chunks/pages/category/[category].js"
+      "static/chunks/pages/cart.js"
+    ],
+    "/name/[name]": [
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/chunks/pages/name/[name].js"
     ],
     "/next/dist/pages/_error": [
       "static/chunks/main.js",

@@ -9,7 +9,8 @@ function Products(){
 
     const handleFilter = (e) => {
         e.preventDefault();
-        const filteredProducts = filtrableProducts.filter(item => item.description.toLowerCase().includes(filter))
+        let normalizedFilter = filter.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        const filteredProducts = filtrableProducts.filter(item => item.description.toLowerCase().includes(normalizedFilter))
 
         setProducts(filteredProducts);
     }

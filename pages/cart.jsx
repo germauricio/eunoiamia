@@ -72,7 +72,7 @@ const Cart = () => {
                 <aside className="aside-cart">
                     <div class="summary">
                         <div class="summary-total-items"><strong><span class="total-items">Productos en el carrito</span></strong></div>
-                        <div className="pl-4">
+                        <div style={{textAlign: "center"}}>
                             <img src="./macetas.png" height="50px"></img>
                         </div>
                         <div class="summary-subtotal">
