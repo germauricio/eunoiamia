@@ -32,7 +32,8 @@ const Category = () => {
             </div>
             <div className="container">
             { products ? (
-                <ProductList products={products} />
+                <h1>holi</h1>
+                //<ProductList products={products} />
                 ) : (
                     <div>
                         <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
