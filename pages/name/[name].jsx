@@ -110,7 +110,7 @@ export default () => {
                             <div className="image-slider">
                                 <img
                                 className="w-100 h-100"
-                                src={`${product.image}-1.jpg`}
+                                src={`${product.image}-1.jpeg`}
                                 />
                             </div>
                             <Carousel.Caption>
@@ -120,7 +120,7 @@ export default () => {
                             <div className="image-slider">
                                 <img
                                 className="w-100 h-100"
-                                src={`${product.image}-2.jpg`}
+                                src={`${product.image}-2.jpeg`}
                                 />
                             </div>
                             <Carousel.Caption>
@@ -130,7 +130,7 @@ export default () => {
                             <div className="image-slider">
                                 <img
                                 className="w-100 h-100"
-                                src={`${product.image}-3.jpg`}
+                                src={`${product.image}-3.jpeg`}
                                 />
                             </div>
                             <Carousel.Caption>
