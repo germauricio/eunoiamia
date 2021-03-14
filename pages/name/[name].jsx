@@ -82,8 +82,8 @@ export default () => {
 
     useEffect(() => {
         (async () => {
+            console.log(router)
             if(router){
-                console.log(router)
                 const gettedProduct = await getProduct(router.query.name);
                 if(gettedProduct){
                     gettedProduct.quantity = 1;
@@ -95,9 +95,9 @@ export default () => {
     
     return(
     <div>
-        {product && (
+        {/* {product && (
         <BreadCrumb category={product.category} />
-        )}
+        )} */}
         <div class="container">
         { product ? (
             <div class="card">
