@@ -11,7 +11,7 @@ export const CartProvider = (props) => {
         } else {
             let storageCart = JSON.parse(localStorage.getItem('cart'));
             if(!setted){
-                setCart(storageCart);
+                setCart(storageCart || []);
                 setSetted(true);
             }
         }
