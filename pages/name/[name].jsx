@@ -16,6 +16,7 @@ export default () => {
     const [shipment, setShipment] = useState('');
     const [missingShipment, showShipmentMissing] = useState(false);
     const [outOfStock, setOutOfStock] = useState(false);
+    const [images, setImages] = useState(false);
 
     var inCart = cart.find(item => item.id == product.id);
     var quantityInCart = inCart ? inCart.quantity : 0;
@@ -86,6 +87,21 @@ export default () => {
                 const gettedProduct = await getProduct(router.query.name);
                 if(gettedProduct){
                     gettedProduct.quantity = 1;
+                    let imagesArray = [];
+                    
+                    for (let i = 0; i < gettedProduct.imagesquantity; i++) {
+                        imagesArray.push(
+                            <Carousel.Item>
+                                <div className="image-slider">
+                                    <img
+                                    className="w-100 h-100"
+                                    src={`${gettedProduct.image}-${i+1}.jpeg`}
+                                    />
+                                </div>
+                            </Carousel.Item>
+                        )
+                    }
+                    setImages(imagesArray);
                 }
                 setProduct(gettedProduct);
             }
@@ -106,36 +122,9 @@ export default () => {
                     <div className="img-big-wrap">
                     <div className="carousel-container-product">
                         <Carousel interval={15000}>
-                            <Carousel.Item>
-                            <div className="image-slider">
-                                <img
-                                className="w-100 h-100"
-                                src={`${product.image}-1.jpeg`}
-                                />
-                            </div>
-                            <Carousel.Caption>
-                            </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                            <div className="image-slider">
-                                <img
-                                className="w-100 h-100"
-                                src={`${product.image}-2.jpeg`}
-                                />
-                            </div>
-                            <Carousel.Caption>
-                            </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                            <div className="image-slider">
-                                <img
-                                className="w-100 h-100"
-                                src={`${product.image}-3.jpeg`}
-                                />
-                            </div>
-                            <Carousel.Caption>
-                            </Carousel.Caption>
-                            </Carousel.Item>
+                            {images && (
+                                images
+                            )}
                         </Carousel>
                         </div>
                     </div>

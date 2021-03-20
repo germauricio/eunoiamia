@@ -68,7 +68,6 @@ const MenuBar = () => {
                   <div onClick = {handleHide}>  
                     <Link path="/category/aromaterapia" title="Aromaterapia"/>
                   </div>
-
                 </div>
               </div>
           </li>
