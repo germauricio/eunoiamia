@@ -17,6 +17,7 @@ export default () => {
     const [missingShipment, showShipmentMissing] = useState(false);
     const [outOfStock, setOutOfStock] = useState(false);
     const [images, setImages] = useState(false);
+    const [showNoStock, setShowNoStock] = useState(false);
 
     var inCart = cart.find(item => item.id == product.id);
     var quantityInCart = inCart ? inCart.quantity : 0;
@@ -50,18 +51,8 @@ export default () => {
     
     const handleShipment = (e) => {
         setShipment(e.target.value);
+        showShipmentMissing(false);
         setMercadoPagoPreferences(product.price, product.description, product.quantity, shipment);
-    }
-
-    const handleQuantity = (e) => {
-        if(parseInt(e.target.value) + quantityInCart > product.stock) {
-            setOutOfStock(true);
-        }
-        else {
-            setOutOfStock(false)
-            setQuantity(e.target.value);
-            setMercadoPagoPreferences(product.price, product.description, product.quantity, shipment);
-        }
     }
 
     const handleCheckout = (product) => {
@@ -150,12 +141,24 @@ export default () => {
                                     <label className="px-4">Cantidad: </label>
                                     <div className="container">
                                         <div className="input-number">
-                                            <button type="button" onClick={() => setQuantity(quantity-1)}>&minus;</button>
+                                            <button type="button" onClick={() => {
+                                                setShowNoStock(false);
+                                                if(quantity-1 > 0){
+                                                    setQuantity(quantity-1)}
+                                                }
+                                            }>&minus;</button>
                                             <span>{quantity}</span>
-                                            <button type="button" onClick={() => setQuantity(quantity+1)}>&#43;</button>     
+                                            <button type="button" onClick={() => {
+                                                if(quantity+1 <= product.stock){
+                                                    setQuantity(quantity+1)
+                                                } else {
+                                                    setShowNoStock(true);
+                                                }
+                                            }
+                                            }>&#43;</button>     
                                         </div>
                                     </div>
-                                    { product.stock < quantity && (
+                                    { showNoStock && (
                                         <p class="text-danger">Solo tenemos {product.stock} disponibles!</p>
                                     )}
                                 </div>
@@ -182,9 +185,6 @@ export default () => {
                                 </div>
                                 { missingShipment && (
                                     <p class="text-danger">Seleccionar un metodo de envio</p>
-                                    )}
-                                {outOfStock && (
-                                    <p class="text-danger">Solo tenemos {product.stock} disponibles!</p>
                                 )}
 
                                 <div className="pt-3">

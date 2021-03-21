@@ -15,8 +15,10 @@ const Outstanding = () => {
         <div>
             <h2 className="h1-info p-5">Destacados</h2>
             <div className="container">
-            {products && (
+            {products ? (
                 <ProductList products={products} />
+            ):(
+                <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
             )}
             </div>
         </div>
