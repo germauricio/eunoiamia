@@ -165,28 +165,31 @@ export default () => {
                                 </button>
 
                                 <hr></hr>
-
-                                <div className="inputGroup" onChange={handleShipment}>
-                                    <input type="radio" name="shipment" id="shipment" value="shipment"/>
-                                    <label for="shipment">
-                                        Envío (costo a acordar, mínimo $150)
-                                    </label>
-                                </div>
-                                    <br></br>
-
-                                <div className="inputGroup" onChange={handleShipment}>
-                                    <input type="radio" name="shipment" id="retirement" value="retirement"/>
-                                    <label for="retirement">
-                                        Retiro (sin cargo por Saenz Peña)
-                                    </label>
+                                
+                                <div className="pt-3">
+                                    <div className="inputGroup" onChange={handleShipment}>
+                                        <input type="radio" name="shipment" id="shipment" value="shipment"/>
+                                        <label for="shipment">
+                                            Envío (mínimo $150)
+                                        </label>
+                                    </div>
+                                    <div className="inputGroup" onChange={handleShipment}>
+                                        <input type="radio" name="shipment" id="retirement" value="retirement"/>
+                                        <label for="retirement">
+                                            Retiro (sin cargo por Saenz Peña)
+                                        </label>
+                                    </div>
                                 </div>
                                 { missingShipment && (
                                     <p class="text-danger">Seleccionar un metodo de envio</p>
-                                )}
+                                    )}
                                 {outOfStock && (
                                     <p class="text-danger">Solo tenemos {product.stock} disponibles!</p>
                                 )}
 
+                                <div className="pt-3">
+                                    <blockquote><strong>Aclaracion: Si se selecciona con "Envío" el costo dependera de la zona y será a acordar con el vendedor </strong></blockquote>
+                                </div>
                                 <hr></hr>
                                 <h5 class="title">Comprar con:</h5>
                                 <div className="container">
@@ -200,8 +203,12 @@ export default () => {
                                     />
                                     </div>
                                     
-                                    <button onClick = {() => handleCheckout(product)} class="btn btn-sm btn-success position-static" style={{fontSize: "1.2em", width: "7em",
-                                        marginTop: "1.2em", height: "2.7em"}}>Efectivo</button>
+                                    <button 
+                                    onClick = {() => handleCheckout(product)} 
+                                    className="btn btn-sm btn-success position-static" 
+                                    style={{fontSize: "1.2em", width: "7em", marginTop: "1.2em", height: "2.7em"}}>    
+                                        Efectivo
+                                    </button>
                                 </div>
                             </div>
                         )

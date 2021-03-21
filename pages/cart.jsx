@@ -86,16 +86,19 @@ const Cart = () => {
                         <div class="summary-total">
                             <div class="total-title">Total</div>
                             <div class="total-value final-value" id="basket-total">${totalPrice}</div>
-                            <div class="form-check" onChange={handleShipment}>
-                                <input class="form-check-input" type="radio" name="shipment" id="shipment" value="shipment"/>
-                                <label class="form-check-label" for="shipment">
-                                    Envío (costo a acordar, mínimo $150)
-                                </label>
-                                <br></br>
-                                <input class="form-check-input" type="radio" name="shipment" id="retirement" value="retirement"/>
-                                <label class="form-check-label" for="retirement">
-                                    Retiro (sin cargo por Saenz Peña)
-                                </label>
+                            <div className="pt-4">
+                                <div className="inputGroup" onChange={handleShipment}>
+                                    <input type="radio" name="shipment" id="shipment" value="shipment"/>
+                                    <label for="shipment">
+                                        Envío (mínimo $150)
+                                    </label>
+                                </div>
+                                <div className="inputGroup" onChange={handleShipment}>
+                                    <input type="radio" name="shipment" id="retirement" value="retirement"/>
+                                    <label for="retirement">
+                                        Retiro (sin cargo por Saenz Peña)
+                                    </label>
+                                </div>
                             </div>
                             { missingShipment && (
                                 <p class="text-danger">Seleccionar un metodo de envio</p>
