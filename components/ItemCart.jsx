@@ -1,10 +1,16 @@
 import React, {useState, useEffect, useContext} from 'react';
-import { CartContext } from '../services/cartContext'
+import { CartContext } from '../services/cartContext';
+import {useRouter} from 'next/router';
 
 const ItemCart = ({item, totalPrice}) => {
     const {cartProvider} = useContext(CartContext); 
+    const router = useRouter();
     const [cart, setCart] = cartProvider;
     const [outOfStock, setOutOfStock] = useState(false);
+
+    const handleRedirect = () => {
+        router.push(`/name/${item.name}`);
+    }
 
     const decreaseQuantity = (product) => {
         const cartProduct = cart.find(item => item.id == product.id);
@@ -61,11 +67,12 @@ const ItemCart = ({item, totalPrice}) => {
                 height ="160px" 
                 alt={item.image} 
                 class="product-frame"
+                onClick={handleRedirect}
                 />
             </div>
             <div class="product-details-cart">
                 <h1 className="h1-cart ml-4"><strong className="strong-cart"><span class="item-quantity">{item.quantity}</span></strong></h1>
-                <p className="p-cart ml-4"><strong className="strong-cart">{item.description}</strong></p>
+                <p onClick={handleRedirect} className="p-cart ml-4"><strong className="strong-cart">{item.description}</strong></p>
                 <p className="p-cart ml-4">Código de producto: {item.id}</p>
             </div>
         </div>
