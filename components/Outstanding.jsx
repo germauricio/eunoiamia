@@ -13,7 +13,7 @@ const Outstanding = () => {
     }, [])
     return (
         <div>
-            <h2 className="h1-info p-5">Destacados</h2>
+            <h2 className="outstandingh2">🌟{'  '}Destacados{'  '}🌟</h2>
             <div className="container">
             {products ? (
                 <ProductList products={products} />
@@ -21,6 +21,7 @@ const Outstanding = () => {
                 <img src="/Rolling-1s-200px.gif" className="loading" alt="loading"/>
             )}
             </div>
+            <hr></hr>
         </div>
     )
 }

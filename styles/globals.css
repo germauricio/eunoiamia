@@ -295,6 +295,44 @@ h2 {
   color: #fff;
   z-index:-1;
 }
+
+.hover06 figure img {
+  -webkit-transform: rotate(0) scale(1);
+  transform: rotate(0) scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.hover06 figure:hover img {
+  -webkit-transform: rotate(5deg) scale(1.1);
+  transform: rotate(5deg) scale(1.1);
+}
+
+.hover01 figure img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover01 figure:hover img {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+.outstandingh2 {
+  margin-top: 3rem;
+  font-family: 'Dancing Script';
+  font-size: 3rem
+}
+
+.outstandingh2::before,
+.outstandingh2::after {
+    display: inline-block;
+    content: "";
+    border-top: .1rem solid black;
+    width: 20rem;
+    margin: 0 2rem;
+    transform: translateY(-0.8rem);
+}
 .inputGroup input:checked ~ label:before {
   transform: translate(-50%, -50%) scale3d(56, 56, 1);
   opacity: 1;
@@ -663,19 +701,6 @@ nav ul li a:hover{
 
   .product-card {
     width: 180px;
-  }
-  .destacados {
-    color: blue;
-    font-size: 500px;
-    text-align: center;
-    font-family: 'Dancing Script';
-  }
-  h2::before .destacados h2::after {
-    flex-grow: 1;
-    height: 1px;
-    content: '\a0';
-    position: block;
-    top: 0.5em;
   }
 
   .display-image {

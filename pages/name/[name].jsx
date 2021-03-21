@@ -84,10 +84,16 @@ export default () => {
                         imagesArray.push(
                             <Carousel.Item>
                                 <div className="image-slider">
-                                    <img
-                                    className="w-100 h-100"
-                                    src={`${gettedProduct.image}-${i+1}.jpeg`}
-                                    />
+                                    <div class="hover01 column">
+                                        <div>
+                                            <figure>
+                                                <img 
+                                                className="w-100 h-100"
+                                                src={`${gettedProduct.image}-${i+1}.jpeg`}
+                                                />
+                                            </figure>
+                                        </div>
+                                    </div>
                                 </div>
                             </Carousel.Item>
                         )
