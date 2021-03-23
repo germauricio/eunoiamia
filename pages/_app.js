@@ -7,15 +7,25 @@ import {CartProvider} from '../services/cartContext';
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
+
+
   return (
     <CartProvider>
       <Head>
         <title>Eunoia Mia</title>
       </Head>
-      <Header />
-      <MenuBar />
-      <Component {...pageProps} />
-      <Footer></Footer>
+      { pageProps ? (
+        <>
+          <Header />
+          <MenuBar />
+          <Component {...pageProps} />
+          <Footer></Footer>
+        </>
+      ) : (
+        <div className="container">
+          <img src="/Rolling-1s-200px.gif" height="200px" className="loading" alt="loading"/>
+        </div>
+      )}
     </CartProvider>
   );
 }

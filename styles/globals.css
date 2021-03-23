@@ -321,7 +321,10 @@ h2 {
 .outstandingh2 {
   margin-top: 3rem;
   font-family: 'Dancing Script';
-  font-size: 3rem
+  font-size: 3rem;
+}
+.outstandingh2 span {
+  font-size: 2rem;
 }
 
 .outstandingh2::before,

@@ -13,7 +13,7 @@ const Outstanding = () => {
     }, [])
     return (
         <div>
-            <h2 className="outstandingh2">🌟{'  '}Destacados{'  '}🌟</h2>
+            <h2 className="outstandingh2"><span>🌟</span>{'  '}Destacados{'  '}<span>🌟</span></h2>
             <div className="container">
             {products ? (
                 <ProductList products={products} />
