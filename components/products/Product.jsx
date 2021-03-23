@@ -31,8 +31,7 @@ const Product = ({product}) => {
                 image: product.image,
                 id: product.id,
                 stock: product.stock,
-                name: product.name,
-                cost: product.cost
+                name: product.name
             }
                 setCart(curr => [...curr, currProduct]);
             }
@@ -44,7 +43,8 @@ const Product = ({product}) => {
                 path={`/name/${product.name}`} 
                 title={
                     <div class="product-tumb">
-                    <LazyLoadImage
+                    <img
+                    loading="lazy"
                     src={`${product.image}-1.jpeg`} 
                     alt={product.name} 
                     />
