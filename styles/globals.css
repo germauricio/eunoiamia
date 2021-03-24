@@ -335,6 +335,7 @@ h2 {
     width: 20rem;
     margin: 0 2rem;
     transform: translateY(-0.8rem);
+    max-width: 80%;
 }
 .inputGroup input:checked ~ label:before {
   transform: translate(-50%, -50%) scale3d(56, 56, 1);
